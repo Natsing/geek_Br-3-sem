@@ -1,0 +1,6 @@
+{
+  "name": "DocBratus",
+  "description": "Конструктор протоколов реабилитации доктора Братуся",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

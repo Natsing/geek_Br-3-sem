@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Братусь Михаил Андреевич — врач-реабилитолог в Москве | DocBratus</title>
+<meta name="description" content="Врач-реабилитолог, ЛФК и спортивная медицина в Москве. Безоперационное лечение грыж и протрузий, боли в спине и плече, реабилитация после травм и операций. Запись на приём." />
+<meta name="theme-color" content="#2196c4" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Братусь Михаил Андреевич — врач-реабилитолог | DocBratus" />
+<meta property="og:description" content="Верну вас к жизни без боли. Безоперационное лечение грыж, боли в спине и плече, реабилитация после травм и операций." />
+<meta property="og:locale" content="ru_RU" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --sky:#e8f4fb;       /* светло-голубой фон */
+  --sky-2:#d0e8f5;     /* средний голубой */
+  --sky-3:#a8d0e8;     /* акцентный голубой */
+  --blue:#2196c4;      /* основной голубой */
+  --blue-dk:#0d6e99;   /* тёмно-голубой (hover) */
+  --navy:#0f3457;      /* тёмно-синий */
+  --text:#1e3a52;      /* основной текст */
+  --muted:#5a7a92;     /* приглушённый текст */
+  --green:#2ab67c;     /* «стало / успех» */
+  --red:#e05252;       /* «было / проблема» */
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(15,52,87,.10);
+  --shadow-sm:0 4px 14px rgba(15,52,87,.08);
+  --radius:16px;
+  --radius-lg:20px;
+  --radius-sm:10px;
+  --maxw:1140px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--text);
+  background:var(--sky);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.section{padding:84px 0}
+.eyebrow{
+  display:inline-block;font-weight:600;font-size:13px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--blue);
+  background:var(--white);border:1px solid var(--sky-3);
+  padding:6px 14px;border-radius:999px;margin-bottom:18px;
+}
+.section-title{font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--navy);line-height:1.15}
+.section-sub{color:var(--muted);font-size:17px;margin-top:14px;max-width:640px}
+.center{text-align:center}
+.center .section-sub{margin-left:auto;margin-right:auto}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;justify-content:center;
+  font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px;
+  cursor:pointer;border:2px solid transparent;transition:.2s ease;white-space:nowrap;
+}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(33,150,196,.32)}
+.btn-primary:hover{background:var(--blue-dk);transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--navy);border-color:var(--sky-3)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-lg{padding:16px 32px;font-size:17px}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(232,244,251,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(168,208,232,.5);transition:.3s;
+}
+.nav.scrolled{background:rgba(255,255,255,.92);box-shadow:var(--shadow-sm)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700}
+.logo-mark{
+  width:40px;height:40px;border-radius:11px;flex:none;
+  background:linear-gradient(135deg,var(--blue),var(--navy));
+  display:grid;place-items:center;color:#fff;font-family:'Playfair Display',serif;
+  font-size:19px;box-shadow:0 6px 14px rgba(15,52,87,.25);
+}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-text b{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy)}
+.logo-text span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-size:15px;font-weight:500;color:var(--text);transition:.2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
+
+/* ---------- HERO ---------- */
+.hero{padding:130px 0 70px;position:relative}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(800px 400px at 78% 8%,rgba(168,208,232,.55),transparent 60%),
+    radial-gradient(600px 360px at 10% 90%,rgba(208,232,245,.6),transparent 60%);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(34px,5.2vw,58px);font-weight:800;color:var(--navy);line-height:1.08;letter-spacing:-.01em}
+.hero h1 .accent{color:var(--blue)}
+.hero-sub{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:520px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.badge{
+  display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--sky-3);
+  padding:11px 16px;border-radius:14px;box-shadow:var(--shadow-sm);
+}
+.badge .b-ico{font-size:20px;line-height:1}
+.badge b{display:block;font-size:15px;color:var(--navy);font-weight:700;line-height:1.1}
+.badge small{font-size:12px;color:var(--muted)}
+.stars{color:#f4b740;letter-spacing:1px}
+
+.hero-photo{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  aspect-ratio:4/5;background:linear-gradient(160deg,var(--sky-2),var(--sky-3));
+  box-shadow:var(--shadow);border:6px solid #fff;display:grid;place-items:center;
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-photo .ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--blue-dk);text-align:center;padding:20px}
+.hero-photo .ph svg{width:64px;height:64px;opacity:.5}
+.hero-photo .ph span{font-size:13px;color:var(--muted);max-width:200px}
+.hero-photo .float-card{
+  position:absolute;left:-14px;bottom:24px;background:#fff;border-radius:14px;
+  padding:12px 16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;
+}
+.float-card .fc-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--blue);line-height:1}
+.float-card small{font-size:12px;color:var(--muted)}
+
+/* ---------- RESULTS (До/После) ---------- */
+.results{background:#fff}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+.result-card{
+  border:1px solid var(--sky-2);border-radius:var(--radius);overflow:hidden;
+  background:linear-gradient(180deg,#fff,#fbfdff);transition:.25s;display:flex;flex-direction:column;
+}
+.result-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--sky-3)}
+.result-head{padding:18px 18px 14px;border-bottom:1px solid var(--sky-2)}
+.result-diag{font-weight:700;color:var(--navy);font-size:17px;font-family:'Playfair Display',serif}
+.result-dur{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;color:var(--blue-dk);background:var(--sky);padding:4px 11px;border-radius:999px;font-weight:600}
+.ba-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--sky-2)}
+.result-photo{aspect-ratio:1/1;display:grid;place-items:center;position:relative;color:#fff;font-weight:700;font-size:13px}
+.result-photo.before{background:linear-gradient(160deg,#f0a5a5,#e05252)}
+.result-photo.after{background:linear-gradient(160deg,#7fd8b4,#2ab67c)}
+.result-photo .tag{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.22);padding:2px 9px;border-radius:999px;font-size:11px;letter-spacing:.05em}
+.result-photo .ph-ico{opacity:.85;display:flex;flex-direction:column;align-items:center;gap:4px}
+.result-body{padding:16px 18px;flex:1;display:flex;flex-direction:column}
+.result-quote{font-size:14px;color:var(--text);font-style:italic;flex:1}
+.result-sign{margin-top:14px;display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--sky-3);padding-top:12px}
+.result-sign b{font-size:13px;color:var(--navy)}
+.result-sign small{font-size:11px;color:var(--muted)}
+.prodoctorov{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--green);font-weight:600}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.about-text p{color:var(--muted);font-size:16px;margin-top:16px}
+.about-text .lead{font-size:18px;color:var(--text)}
+.about-text strong{color:var(--navy)}
+.regalia{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.regalia-card{
+  background:#fff;border:1px solid var(--sky-2);border-radius:14px;padding:18px;
+  box-shadow:var(--shadow-sm);transition:.2s;
+}
+.regalia-card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.regalia-ico{width:42px;height:42px;border-radius:11px;background:var(--sky);display:grid;place-items:center;margin-bottom:12px;color:var(--blue)}
+.regalia-card b{display:block;color:var(--navy);font-size:15px;font-family:'Playfair Display',serif}
+.regalia-card small{color:var(--muted);font-size:13px;display:block;margin-top:4px}
+
+/* ---------- DIRECTIONS ---------- */
+.directions{background:linear-gradient(180deg,var(--sky),#fff)}
+.dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+.dir-card{
+  background:#fff;border:1px solid var(--sky-2);border-radius:var(--radius);padding:26px;
+  transition:.25s;position:relative;overflow:hidden;
+}
+.dir-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.dir-card .dir-ico{width:52px;height:52px;border-radius:14px;background:var(--sky);display:grid;place-items:center;color:var(--blue);margin-bottom:16px}
+.dir-card h3{font-size:20px;color:var(--navy);font-weight:700}
+.dir-card p{color:var(--muted);font-size:14.5px;margin-top:10px}
+.dir-card.featured{background:linear-gradient(160deg,var(--navy),#0a2540);border-color:var(--navy)}
+.dir-card.featured h3,.dir-card.featured p{color:#fff}
+.dir-card.featured p{color:#c5dcef}
+.dir-card.featured .dir-ico{background:rgba(255,255,255,.12);color:#fff}
+.dir-card.featured .dir-tag{position:absolute;top:18px;right:18px;background:var(--blue);color:#fff;font-size:11px;font-weight:600;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
+
+/* ---------- REVIEWS ---------- */
+.reviews{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.reviews::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 360px at 85% 0%,rgba(33,150,196,.28),transparent 60%);z-index:0}
+.reviews .container{position:relative;z-index:1}
+.reviews .section-title{color:#fff}
+.reviews .section-sub{color:#bcd6ea}
+.rating-block{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+.rating-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#fff;line-height:1}
+.rating-meta{text-align:left}
+.rating-meta .stars{font-size:20px}
+.rating-meta small{display:block;color:#bcd6ea;font-size:13px}
+.carousel{margin-top:44px;position:relative}
+.carousel-viewport{overflow:hidden;border-radius:var(--radius-lg)}
+.carousel-track{display:flex;transition:transform .55s cubic-bezier(.45,.05,.2,1)}
+.slide{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:4px}
+.review-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;
+  backdrop-filter:blur(4px);
+}
+.review-card .r-stars{color:#f4b740;font-size:15px;margin-bottom:12px}
+.review-card .r-text{color:#e4eef7;font-size:14.5px;flex:1;font-style:italic}
+.review-card .r-foot{margin-top:18px;display:flex;align-items:center;gap:12px}
+.r-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--sky-3));display:grid;place-items:center;font-weight:700;color:#fff;flex:none}
+.r-foot b{font-size:14px;color:#fff;display:block}
+.r-foot small{font-size:12px;color:#9fc0db}
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:30px}
+.c-arrow{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.c-arrow:hover{background:var(--blue);border-color:var(--blue)}
+.c-dots{display:flex;gap:9px}
+.c-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.25s;border:none;padding:0}
+.c-dot.active{background:var(--blue);width:26px;border-radius:999px}
+
+/* ---------- BOOKING ---------- */
+.booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.adv-list{display:flex;flex-direction:column;gap:18px;margin-top:30px}
+.adv-item{display:flex;gap:16px;align-items:flex-start}
+.adv-ico{width:46px;height:46px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;flex:none}
+.adv-item b{color:var(--navy);font-size:16px;font-family:'Playfair Display',serif}
+.adv-item p{color:var(--muted);font-size:14px;margin-top:2px}
+.book-card{
+  background:linear-gradient(165deg,#fff,#f4fafe);border:1px solid var(--sky-2);
+  border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow);
+}
+.book-card h3{font-size:24px;color:var(--navy);margin-bottom:6px}
+.book-card .bc-sub{color:var(--muted);font-size:15px;margin-bottom:24px}
+.contact-row{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--sky-2)}
+.contact-row:last-of-type{border-bottom:none}
+.contact-ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;color:#fff}
+.contact-ico.tg{background:#229ed9}
+.contact-ico.ph{background:var(--green)}
+.contact-ico.max{background:var(--navy)}
+.contact-row .c-meta{flex:1}
+.contact-row small{font-size:12px;color:var(--muted);display:block}
+.contact-row b{font-size:16px;color:var(--navy)}
+.book-card .btn{width:100%;margin-top:24px}
+.clinic-note{margin-top:18px;font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+
+/* ---------- FOOTER ---------- */
+.footer{background:#0a2540;color:#bcd6ea;padding:54px 0 26px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.footer .logo-text b{color:#fff}
+.footer p{font-size:14px;color:#8fb2cf;margin-top:16px;max-width:320px}
+.footer h4{color:#fff;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:14.5px;color:#bcd6ea;transition:.2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:#7a9cba}
+
+/* ---------- FLOATING CTA (mobile) ---------- */
+.float-cta{position:fixed;bottom:18px;left:18px;right:18px;z-index:90;display:none}
+.float-cta .btn{width:100%;box-shadow:0 10px 26px rgba(13,110,153,.4)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .hero-grid,.about-grid,.booking-grid{grid-template-columns:1fr}
+  .hero-photo{max-width:420px;margin:0 auto}
+  .results-grid,.dir-grid,.slide{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .nav-links{
+    position:fixed;top:68px;left:0;right:0;background:#fff;flex-direction:column;
+    gap:0;padding:0;max-height:0;overflow:hidden;transition:.35s;box-shadow:var(--shadow);
+  }
+  .nav-links.open{max-height:340px;padding:12px 0}
+  .nav-links a{padding:13px 24px;width:100%;border-bottom:1px solid var(--sky-2)}
+  .burger{display:flex}
+  .nav-cta .btn:not(.burger){display:none}
+}
+@media (max-width:600px){
+  .section{padding:60px 0}
+  .results-grid,.dir-grid,.slide,.regalia,.footer-grid{grid-template-columns:1fr}
+  .hero{padding:110px 0 50px}
+  .float-cta{display:block}
+  body{padding-bottom:78px}
+  .reviews .slide{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo" aria-label="Братусь М.А.">
+      <span class="logo-mark">Б</span>
+      <span class="logo-text"><b>Братусь М.А.</b><span>DocBratus</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#results">Результаты</a>
+      <a href="#about">Обо мне</a>
+      <a href="#directions">Направления</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#booking">Контакты</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#booking" class="btn btn-primary">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Врач-реабилитолог · Москва</span>
+      <h1>Верну вас к жизни <span class="accent">без боли</span></h1>
+      <p class="hero-sub">Комплексное безоперационное восстановление при болях в спине и плече, грыжах и протрузиях, после травм и операций — на основе доказательной медицины.</p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn btn-primary btn-lg">Записаться на приём</a>
+        <a href="#results" class="btn btn-ghost btn-lg">Смотреть результаты</a>
+      </div>
+      <div class="hero-badges">
+        <div class="badge">
+          <span class="b-ico">⭐</span>
+          <div><b>5.0 <span class="stars">★★★★★</span></b><small>Рейтинг на ПроДокторов</small></div>
+        </div>
+        <div class="badge">
+          <span class="b-ico">🏥</span>
+          <div><b>Главный врач</b><small>МЦ «СМП-Мед»</small></div>
+        </div>
+        <div class="badge">
+          <span class="b-ico">📺</span>
+          <div><b>Эксперт НТВ</b><small>программа «За гранью»</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="hero-photo">
+        <img src="doctor.jpg" alt="Братусь Михаил Андреевич — врач-реабилитолог" loading="eager" />
+        <div class="float-card">
+          <div class="fc-num">7+</div>
+          <small>лет практики<br>с 2019 года</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS (До/После) ============ -->
+<section class="section results" id="results">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Реальные истории пациентов</span>
+      <h2 class="section-title">Результаты: было → стало</h2>
+      <p class="section-sub">Ключевые клинические случаи. Истории и подписи взяты из верифицированных отзывов на ПроДокторов.</p>
+    </div>
+    <div class="results-grid">
+
+      <article class="result-card reveal">
+        <div class="result-head">
+          <div class="result-diag">Грыжа межпозвонкового диска</div>
+          <span class="result-dur">⏱ Результат за 1 приём</span>
+        </div>
+        <div class="ba-photos">
+          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
+          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        </div>
+        <div class="result-body">
+          <p class="result-quote">«Пришёл, держась за стену от боли. Михаил Андреевич всё объяснил и подобрал нагрузку — встал своими ногами уже через 3 часа».</p>
+          <div class="result-sign"><b>Пациент, 41 год</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+        </div>
+      </article>
+
+      <article class="result-card reveal">
+        <div class="result-head">
+          <div class="result-diag">Травма плеча</div>
+          <span class="result-dur">⏱ 5 месяцев</span>
+        </div>
+        <div class="ba-photos">
+          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
+          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        </div>
+        <div class="result-body">
+          <p class="result-quote">«Рука почти не поднималась. По индивидуальному протоколу за 5 месяцев вернули 85–90% объёма движений — снова тренируюсь».</p>
+          <div class="result-sign"><b>Пациент, 34 года</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+        </div>
+      </article>
+
+      <article class="result-card reveal">
+        <div class="result-head">
+          <div class="result-diag">Сколиоз 4 степени</div>
+          <span class="result-dur">⏱ Курс реабилитации</span>
+        </div>
+        <div class="ba-photos">
+          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
+          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        </div>
+        <div class="result-body">
+          <p class="result-quote">«Долго искала врача, который не отмахнётся. Доктор составил программу под мою спину — ушли боли, исправилась осанка».</p>
+          <div class="result-sign"><b>Кристина, 27 лет</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+        </div>
+      </article>
+
+      <article class="result-card reveal">
+        <div class="result-head">
+          <div class="result-diag">Пластика ПКС</div>
+          <span class="result-dur">⏱ По плану реабилитации</span>
+        </div>
+        <div class="ba-photos">
+          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
+          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        </div>
+        <div class="result-body">
+          <p class="result-quote">«После операции на колене боялся нагрузки. Чёткий поэтапный протокол — встал на ноги ровно по плану, без откатов».</p>
+          <div class="result-sign"><b>Пациент, 29 лет</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+        </div>
+      </article>
+
+      <article class="result-card reveal">
+        <div class="result-head">
+          <div class="result-diag">Перелом бедра</div>
+          <span class="result-dur">⏱ Реабилитация на дому</span>
+        </div>
+        <div class="ba-photos">
+          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
+          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        </div>
+        <div class="result-body">
+          <p class="result-quote">«Маме 83 года, после перелома почти не вставала. Доктор приезжал на дом — вернулась к активности и снова ходит сама».</p>
+          <div class="result-sign"><b>Дочь пациентки</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+        </div>
+      </article>
+
+      <article class="result-card reveal">
+        <div class="result-head">
+          <div class="result-diag">Шейный отдел после операции</div>
+          <span class="result-dur">⏱ Реабилитация на дому</span>
+        </div>
+        <div class="ba-photos">
+          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
+          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        </div>
+        <div class="result-body">
+          <p class="result-quote">«После операции на шее было страшно двигаться. Аккуратная программа на дому — постепенно вернулись движения и уверенность».</p>
+          <div class="result-sign"><b>Пациент, 52 года</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-text reveal">
+      <span class="eyebrow">Обо мне</span>
+      <h2 class="section-title">Братусь Михаил Андреевич</h2>
+      <p class="lead">Врач-реабилитолог, врач ЛФК и спортивной медицины, врач-терапевт. Более 7 лет помогаю пациентам вернуться к полноценной жизни без боли.</p>
+      <p>Специализируюсь на <strong>комплексном консервативном восстановлении</strong> при заболеваниях и последствиях травм опорно-двигательного аппарата. В основе работы — доказательная медицина, дозированная нагрузка и индивидуальные протоколы под каждого пациента.</p>
+      <p>Веду приём в Москве в МЦ «СМП-Мед» и «La Salute», выезжаю на дом и консультирую онлайн. Разработал веб-приложение <strong>Rehabapp</strong> для составления персональных протоколов реабилитации.</p>
+    </div>
+    <div class="regalia reveal">
+      <div class="regalia-card">
+        <div class="regalia-ico">🎓</div>
+        <b>ВМедА им. С.М. Кирова</b>
+        <small>«Лечебное дело», 2019</small>
+      </div>
+      <div class="regalia-card">
+        <div class="regalia-ico">🩺</div>
+        <b>РНИМУ им. Н.И. Пирогова</b>
+        <small>Ординатура «Терапия», 2025</small>
+      </div>
+      <div class="regalia-card">
+        <div class="regalia-ico">🏃</div>
+        <b>ЛФК и спортивная медицина</b>
+        <small>АНО ДПО «ЦПКПП», 2025</small>
+      </div>
+      <div class="regalia-card">
+        <div class="regalia-ico">📺</div>
+        <b>Эксперт телеканала НТВ</b>
+        <small>Программа «За гранью»</small>
+      </div>
+      <div class="regalia-card">
+        <div class="regalia-ico">🎤</div>
+        <b>Спикер конференций</b>
+        <small>Организатор мед. конференций в Москве</small>
+      </div>
+      <div class="regalia-card">
+        <div class="regalia-ico">⭐</div>
+        <b>Рейтинг 5.0</b>
+        <small>Все отзывы на ПроДокторов — пятёрки</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIRECTIONS ============ -->
+<section class="section directions" id="directions">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Клинические направления</span>
+      <h2 class="section-title">С чем я помогаю</h2>
+      <p class="section-sub">Безоперационные методы, индивидуальные протоколы и сопровождение на каждом этапе восстановления.</p>
+    </div>
+    <div class="dir-grid">
+
+      <article class="dir-card featured reveal">
+        <span class="dir-tag">Основное</span>
+        <div class="dir-ico">🦴</div>
+        <h3>Боль в спине и грыжи</h3>
+        <p>Безоперационное лечение (резорбция) грыж и протрузий, боли в шее и пояснице. Метод Маккензи, дозированная нагрузка.</p>
+      </article>
+
+      <article class="dir-card reveal">
+        <div class="dir-ico">💪</div>
+        <h3>Боль в плече</h3>
+        <p>Тендинопатии, синдром «замороженного плеча». Восстановление объёма движений и силы.</p>
+      </article>
+
+      <article class="dir-card reveal">
+        <div class="dir-ico">🦵</div>
+        <h3>Суставы и связки</h3>
+        <p>Тендинопатии, восстановление функции суставов, мобилизация ОДА в физической терапии.</p>
+      </article>
+
+      <article class="dir-card reveal">
+        <div class="dir-ico">🏥</div>
+        <h3>Послеоперационная реабилитация</h3>
+        <p>Эндопротезирование ТБС и КС, пластика ПКС, шов мениска. Поэтапные индивидуальные протоколы.</p>
+      </article>
+
+      <article class="dir-card reveal">
+        <div class="dir-ico">🏠</div>
+        <h3>Реабилитация на дому</h3>
+        <p>Выезд на дом по Москве — восстановление после инсультов и травм, когда сложно добраться до клиники.</p>
+      </article>
+
+      <article class="dir-card reveal">
+        <div class="dir-ico">💻</div>
+        <h3>Онлайн-консультации</h3>
+        <p>Разбор обследований, составление и коррекция протокола реабилитации дистанционно.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff">Отзывы пациентов</span>
+      <h2 class="section-title">Что говорят пациенты</h2>
+      <div class="rating-block">
+        <span class="rating-num">5.0</span>
+        <div class="rating-meta">
+          <span class="stars">★★★★★</span>
+          <small>Все отзывы на ПроДокторов — максимальные</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel reveal" id="carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="track">
+
+          <!-- Слайд 1 -->
+          <div class="slide">
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Грыжа диска свалила с ног. Пришёл согнувшись, а вышел сам — встал своими ногами буквально за пару часов. Грамотный, спокойный, всё разложил по полочкам».</p>
+              <div class="r-foot"><div class="r-avatar">А</div><div><b>Андрей</b><small>Грыжа диска</small></div></div>
+            </div>
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Травмировал плечо, думал — всё. За 5 месяцев восстановили почти полностью, 85–90%. Чёткий план, каждый этап под контролем».</p>
+              <div class="r-foot"><div class="r-avatar">Д</div><div><b>Дмитрий</b><small>Травма плеча</small></div></div>
+            </div>
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Сколиоз 4 степени, обошла много врачей. Михаил Андреевич — первый, кто реально занялся проблемой. Ушли боли, заметно лучше осанка».</p>
+              <div class="r-foot"><div class="r-avatar">К</div><div><b>Кристина, 27</b><small>Сколиоз 4 ст.</small></div></div>
+            </div>
+          </div>
+
+          <!-- Слайд 2 -->
+          <div class="slide">
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«После пластики ПКС боялся нагружать колено. Доктор дал понятный поэтапный протокол — встал на ноги точно по плану, без боли и страха».</p>
+              <div class="r-foot"><div class="r-avatar">С</div><div><b>Сергей</b><small>Пластика ПКС</small></div></div>
+            </div>
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Маме 83, перелом бедра, почти не вставала. Доктор приезжал на дом, занимался терпеливо — мама снова ходит и вернулась к активной жизни. Спасибо!»</p>
+              <div class="r-foot"><div class="r-avatar">Е</div><div><b>Елена</b><small>Перелом бедра (мама)</small></div></div>
+            </div>
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«После операции на шейном отделе восстанавливались дома. Очень аккуратно, без лишнего риска — постепенно вернулись движения. Чувствуется опыт».</p>
+              <div class="r-foot"><div class="r-avatar">О</div><div><b>Ольга</b><small>Шейный отдел</small></div></div>
+            </div>
+          </div>
+
+          <!-- Слайд 3 -->
+          <div class="slide">
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Мучилась мигренями при беременности, лекарства нельзя. Доктор помог буквально за 2 приёма мягкими методами. Очень благодарна».</p>
+              <div class="r-foot"><div class="r-avatar">М</div><div><b>Марина</b><small>Мигрень при беременности</small></div></div>
+            </div>
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Болела спина, готовился к уколам и таблеткам. Хватило пары занятий с правильными упражнениями — боль ушла без лекарств».</p>
+              <div class="r-foot"><div class="r-avatar">И</div><div><b>Игорь</b><small>Боли в спине</small></div></div>
+            </div>
+            <div class="review-card">
+              <div class="r-stars">★★★★★</div>
+              <p class="r-text">«Врач от Бога — внимательный, объясняет простым языком и реально лечит, а не назначает обследования по кругу. Рекомендую всем знакомым».</p>
+              <div class="r-foot"><div class="r-avatar">Н</div><div><b>Наталья</b><small>Боль в пояснице</small></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="c-arrow" id="prev" aria-label="Назад">‹</button>
+        <div class="c-dots" id="dots"></div>
+        <button class="c-arrow" id="next" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="section" id="booking">
+  <div class="container booking-grid">
+    <div class="reveal">
+      <span class="eyebrow">Запись на приём</span>
+      <h2 class="section-title">Запишитесь на консультацию</h2>
+      <p class="section-sub">Очно в Москве, выезд на дом или онлайн. Подберём план восстановления именно под вашу ситуацию.</p>
+      <div class="adv-list">
+        <div class="adv-item">
+          <div class="adv-ico">✓</div>
+          <div><b>Доказательная медицина</b><p>Только методы с подтверждённой эффективностью, без лишних назначений.</p></div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-ico">🎯</div>
+          <div><b>Индивидуальный протокол</b><p>Программа реабилитации под ваш диагноз, этап и образ жизни.</p></div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-ico">🤝</div>
+          <div><b>Сопровождение на каждом этапе</b><p>Контроль динамики и коррекция нагрузки до полного восстановления.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card reveal">
+      <h3>Контакты для записи</h3>
+      <p class="bc-sub">Выберите удобный способ связи — отвечаю лично.</p>
+
+      <a class="contact-row" href="https://t.me/Doc_Bratus" target="_blank" rel="noopener">
+        <div class="contact-ico tg">✈</div>
+        <div class="c-meta"><small>Telegram</small><b>@Doc_Bratus</b></div>
+        <span>›</span>
+      </a>
+
+      <a class="contact-row" href="tel:+79657616543">
+        <div class="contact-ico ph">📞</div>
+        <div class="c-meta"><small>Телефон</small><b>+7 965 761-65-43</b></div>
+        <span>›</span>
+      </a>
+
+      <a class="contact-row" href="https://max.ru/u/f9LHodD0cOIYP3iUbW0GfaIq2jl4-wySOhNgUIDmhHStp5VsUGOHNSoeUzE" target="_blank" rel="noopener">
+        <div class="contact-ico max">M</div>
+        <div class="c-meta"><small>MAX — онлайн-запись</small><b>Записаться в MAX</b></div>
+        <span>›</span>
+      </a>
+
+      <a href="https://t.me/Doc_Bratus" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Написать в Telegram</a>
+
+      <p class="clinic-note">📍 <span>Приём: МЦ «СМП-Мед» (ул. Планерная, 7к1 · Старокачаловская, 3к3) и МЦ «La Salute» (Б. Дровяной пер., 4с1, Таганская). Выезд на дом по Москве + онлайн.</span></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <span class="logo-mark">Б</span>
+          <span class="logo-text"><b>Братусь М.А.</b><span>DocBratus</span></span>
+        </div>
+        <p>Михаил Братусь · Главный врач «СМП МЕД» · DocBratus. Врач-реабилитолог, ЛФК и спортивная медицина, терапевт. Москва.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <div class="footer-links">
+          <a href="#results">Результаты</a>
+          <a href="#about">Обо мне</a>
+          <a href="#directions">Направления</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#booking">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <div class="footer-links">
+          <a href="tel:+79657616543">+7 965 761-65-43</a>
+          <a href="https://t.me/Doc_Bratus" target="_blank" rel="noopener">Telegram @Doc_Bratus</a>
+          <a href="https://max.ru/u/f9LHodD0cOIYP3iUbW0GfaIq2jl4-wySOhNgUIDmhHStp5VsUGOHNSoeUzE" target="_blank" rel="noopener">Запись через MAX</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> DocBratus · Братусь Михаил Андреевич</span>
+      <span>Информация на сайте не является публичной офертой. Есть противопоказания, необходима консультация специалиста.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating CTA (mobile) -->
+<div class="float-cta"><a href="#booking" class="btn btn-primary">Записаться на приём</a></div>
+
+<script>
+(function(){
+  "use strict";
+
+  // Год в футере
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Nav: тень при скролле
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, {passive:true});
+
+  // Бургер-меню
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
+  });
+
+  // Reveal по скроллу
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // ===== Карусель отзывов =====
+  var track = document.getElementById('track');
+  var slides = track.children;
+  var total = slides.length;
+  var dotsWrap = document.getElementById('dots');
+  var idx = 0, timer = null, AUTO = 6000;
+
+  for(var i=0;i<total;i++){
+    var d = document.createElement('button');
+    d.className = 'c-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Слайд '+(i+1));
+    (function(n){ d.addEventListener('click', function(){ go(n); reset(); }); })(i);
+    dotsWrap.appendChild(d);
+  }
+  var dots = dotsWrap.children;
+
+  function go(n){
+    idx = (n + total) % total;
+    track.style.transform = 'translateX(' + (-idx*100) + '%)';
+    for(var k=0;k<dots.length;k++) dots[k].classList.toggle('active', k===idx);
+  }
+  function next(){ go(idx+1); }
+  function prev(){ go(idx-1); }
+  function start(){ timer = setInterval(next, AUTO); }
+  function reset(){ clearInterval(timer); start(); }
+
+  document.getElementById('next').addEventListener('click', function(){ next(); reset(); });
+  document.getElementById('prev').addEventListener('click', function(){ prev(); reset(); });
+
+  // Свайп (touch)
+  var x0 = null;
+  var vp = document.querySelector('.carousel-viewport');
+  vp.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  vp.addEventListener('touchend', function(e){
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); reset(); }
+    x0 = null;
+  }, {passive:true});
+
+  // Пауза на hover
+  var carousel = document.getElementById('carousel');
+  carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  carousel.addEventListener('mouseleave', start);
+
+  start();
+})();
+</script>
+</body>
+</html>
