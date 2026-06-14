@@ -228,6 +228,11 @@ img{max-width:100%;display:block}
 .c-dots{display:flex;gap:9px}
 .c-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.25s;border:none;padding:0}
 .c-dot.active{background:var(--blue);width:26px;border-radius:999px}
+/* Виджет отзывов ПроДокторов */
+.pd-widget-wrap{background:#fff;border-radius:var(--radius-lg);padding:22px;margin:40px auto 0;box-shadow:var(--shadow);max-width:920px;min-height:120px}
+.pd-fallback{text-align:center;margin-top:20px}
+.pd-fallback a{color:#bcd6ea;font-size:14px;border-bottom:1px solid rgba(188,214,234,.4);padding-bottom:2px;transition:.2s}
+.pd-fallback a:hover{color:#fff;border-color:#fff}
 
 /* ---------- BOOKING ---------- */
 .booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
@@ -576,75 +581,34 @@ img{max-width:100%;display:block}
       </div>
     </div>
 
-    <div class="carousel reveal" id="carousel">
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="track">
-
-          <!-- Слайд 1 -->
-          <div class="slide">
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Грыжа диска свалила с ног. Пришёл согнувшись, а вышел сам — встал своими ногами буквально за пару часов. Грамотный, спокойный, всё разложил по полочкам».</p>
-              <div class="r-foot"><div class="r-avatar">А</div><div><b>Андрей</b><small>Грыжа диска</small></div></div>
-            </div>
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Травмировал плечо, думал — всё. За 5 месяцев восстановили почти полностью, 85–90%. Чёткий план, каждый этап под контролем».</p>
-              <div class="r-foot"><div class="r-avatar">Д</div><div><b>Дмитрий</b><small>Травма плеча</small></div></div>
-            </div>
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Сколиоз 4 степени, обошла много врачей. Михаил Андреевич — первый, кто реально занялся проблемой. Ушли боли, заметно лучше осанка».</p>
-              <div class="r-foot"><div class="r-avatar">К</div><div><b>Кристина, 27</b><small>Сколиоз 4 ст.</small></div></div>
-            </div>
-          </div>
-
-          <!-- Слайд 2 -->
-          <div class="slide">
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«После пластики ПКС боялся нагружать колено. Доктор дал понятный поэтапный протокол — встал на ноги точно по плану, без боли и страха».</p>
-              <div class="r-foot"><div class="r-avatar">С</div><div><b>Сергей</b><small>Пластика ПКС</small></div></div>
-            </div>
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Маме 83, перелом бедра, почти не вставала. Доктор приезжал на дом, занимался терпеливо — мама снова ходит и вернулась к активной жизни. Спасибо!»</p>
-              <div class="r-foot"><div class="r-avatar">Е</div><div><b>Елена</b><small>Перелом бедра (мама)</small></div></div>
-            </div>
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«После операции на шейном отделе восстанавливались дома. Очень аккуратно, без лишнего риска — постепенно вернулись движения. Чувствуется опыт».</p>
-              <div class="r-foot"><div class="r-avatar">О</div><div><b>Ольга</b><small>Шейный отдел</small></div></div>
-            </div>
-          </div>
-
-          <!-- Слайд 3 -->
-          <div class="slide">
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Мучилась мигренями при беременности, лекарства нельзя. Доктор помог буквально за 2 приёма мягкими методами. Очень благодарна».</p>
-              <div class="r-foot"><div class="r-avatar">М</div><div><b>Марина</b><small>Мигрень при беременности</small></div></div>
-            </div>
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Болела спина, готовился к уколам и таблеткам. Хватило пары занятий с правильными упражнениями — боль ушла без лекарств».</p>
-              <div class="r-foot"><div class="r-avatar">И</div><div><b>Игорь</b><small>Боли в спине</small></div></div>
-            </div>
-            <div class="review-card">
-              <div class="r-stars">★★★★★</div>
-              <p class="r-text">«Врач от Бога — внимательный, объясняет простым языком и реально лечит, а не назначает обследования по кругу. Рекомендую всем знакомым».</p>
-              <div class="r-foot"><div class="r-avatar">Н</div><div><b>Наталья</b><small>Боль в пояснице</small></div></div>
-            </div>
-          </div>
-
+    <div class="pd-widget-wrap reveal">
+      <!-- Виджет отзывов ПроДокторов — код не редактировать -->
+      <div id="pd_widget_big" data-doctor="882297" hidden>
+        <div class="pd_rate_header">
+          Отзывы о враче Братусь М. А.<br>
+          <a
+            target="_blank"
+            class="pd_rate_new"
+            href="https://prodoctorov.ru/new/rate/doctor/882297/"
+          >Оставить отзыв</a>
         </div>
+        <div id="pd_widget_big_content"></div>
+          <a
+            target="_blank"
+            href="https://prodoctorov.ru/moskva/vrach/882297-bratus/#otzivi"
+            class="pd_read_all"
+          >Читать все отзывы</a>
+          <span id="pd_powered_by">
+            <a target="_blank" href="https://prodoctorov.ru">
+              <img class="pd_logo" src="https://prodoctorov.ru/static/_v1/pd/logos/logo-pd-widget.png">
+            </a>
+          </span>
       </div>
-      <div class="carousel-controls">
-        <button class="c-arrow" id="prev" aria-label="Назад">‹</button>
-        <div class="c-dots" id="dots"></div>
-        <button class="c-arrow" id="next" aria-label="Вперёд">›</button>
-      </div>
+      <script defer src="https://prodoctorov.ru/static/js/widget_big.js?v07"></script>
     </div>
+    <p class="pd-fallback reveal">
+      <a href="https://prodoctorov.ru/moskva/vrach/882297-bratus/#otzivi" target="_blank" rel="noopener">Смотреть все отзывы на ПроДокторов →</a>
+    </p>
   </div>
 </section>
 
@@ -770,53 +734,6 @@ img{max-width:100%;display:block}
     });
   }, {threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-
-  // ===== Карусель отзывов =====
-  var track = document.getElementById('track');
-  var slides = track.children;
-  var total = slides.length;
-  var dotsWrap = document.getElementById('dots');
-  var idx = 0, timer = null, AUTO = 6000;
-
-  for(var i=0;i<total;i++){
-    var d = document.createElement('button');
-    d.className = 'c-dot' + (i===0?' active':'');
-    d.setAttribute('aria-label','Слайд '+(i+1));
-    (function(n){ d.addEventListener('click', function(){ go(n); reset(); }); })(i);
-    dotsWrap.appendChild(d);
-  }
-  var dots = dotsWrap.children;
-
-  function go(n){
-    idx = (n + total) % total;
-    track.style.transform = 'translateX(' + (-idx*100) + '%)';
-    for(var k=0;k<dots.length;k++) dots[k].classList.toggle('active', k===idx);
-  }
-  function next(){ go(idx+1); }
-  function prev(){ go(idx-1); }
-  function start(){ timer = setInterval(next, AUTO); }
-  function reset(){ clearInterval(timer); start(); }
-
-  document.getElementById('next').addEventListener('click', function(){ next(); reset(); });
-  document.getElementById('prev').addEventListener('click', function(){ prev(); reset(); });
-
-  // Свайп (touch)
-  var x0 = null;
-  var vp = document.querySelector('.carousel-viewport');
-  vp.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
-  vp.addEventListener('touchend', function(e){
-    if(x0===null) return;
-    var dx = e.changedTouches[0].clientX - x0;
-    if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); reset(); }
-    x0 = null;
-  }, {passive:true});
-
-  // Пауза на hover
-  var carousel = document.getElementById('carousel');
-  carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
-  carousel.addEventListener('mouseleave', start);
-
-  start();
 })();
 </script>
 </body>
