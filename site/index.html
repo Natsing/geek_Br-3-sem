@@ -129,6 +129,7 @@ img{max-width:100%;display:block}
   aspect-ratio:4/5;background:linear-gradient(160deg,var(--sky-2),var(--sky-3));
   box-shadow:var(--shadow);border:6px solid #fff;display:grid;place-items:center;
 }
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .hero-photo .ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--blue-dk);text-align:center;padding:20px}
 .hero-photo .ph svg{width:64px;height:64px;opacity:.5}
 .hero-photo .ph span{font-size:13px;color:var(--muted);max-width:200px}
@@ -350,11 +351,7 @@ img{max-width:100%;display:block}
     </div>
     <div class="reveal">
       <div class="hero-photo">
-        <!-- Заменить на фото врача: .hero-photo -->
-        <div class="ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span>Здесь будет фото врача<br>Братуся Михаила Андреевича</span>
-        </div>
+        <img src="doctor.jpg" alt="Братусь Михаил Андреевич — врач-реабилитолог" loading="eager" />
         <div class="float-card">
           <div class="fc-num">7+</div>
           <small>лет практики<br>с 2019 года</small>
