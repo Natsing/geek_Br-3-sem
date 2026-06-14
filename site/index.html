@@ -196,6 +196,31 @@ img{max-width:100%;display:block}
 .dir-card.featured .dir-ico{background:rgba(255,255,255,.12);color:#fff}
 .dir-card.featured .dir-tag{position:absolute;top:18px;right:18px;background:var(--blue);color:#fff;font-size:11px;font-weight:600;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
 
+/* ---------- APPROACH (фишка: лечу причину) ---------- */
+.approach{background:#fff}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+.approach-card{background:linear-gradient(180deg,#fff,#f4fafe);border:1px solid var(--sky-2);border-radius:var(--radius);padding:28px;transition:.25s}
+.approach-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.approach-card .a-ico{width:54px;height:54px;border-radius:14px;background:var(--sky);display:grid;place-items:center;color:var(--blue);margin-bottom:16px;font-size:24px}
+.approach-card h3{font-size:19px;color:var(--navy)}
+.approach-card p{color:var(--muted);font-size:14.5px;margin-top:10px}
+
+/* ---------- QUALIFICATION (образование + методы) ---------- */
+.qual{background:linear-gradient(180deg,#fff,var(--sky))}
+.qual-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:46px;align-items:start}
+.qual-col{background:#fff;border:1px solid var(--sky-2);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm)}
+.qual-col h3{font-size:20px;color:var(--navy);display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.qual-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.qual-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin:16px 0 8px}
+.edu-item{padding:12px 0;border-bottom:1px solid var(--sky-2)}
+.edu-item:last-child{border-bottom:none}
+.edu-item b{display:block;color:var(--navy);font-size:15px}
+.edu-item small{color:var(--muted);font-size:13px}
+.method-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+.method-tag{background:var(--sky);color:var(--blue-dk);border:1px solid var(--sky-3);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:500}
+.method-note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.5}
+@media (max-width:860px){.approach-grid,.qual-grid{grid-template-columns:1fr}}
+
 /* ---------- REVIEWS ---------- */
 .reviews{background:var(--navy);color:#fff;position:relative;overflow:hidden}
 .reviews::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 360px at 85% 0%,rgba(33,150,196,.28),transparent 60%);z-index:0}
@@ -363,7 +388,7 @@ img{max-width:100%;display:block}
         </div>
         <div class="badge">
           <span class="b-ico">📺</span>
-          <div><b>Эксперт НТВ</b><small>программа «За гранью»</small></div>
+          <div><b>Медэксперт ТВ</b><small>НТВ и Пятый канал</small></div>
         </div>
       </div>
     </div>
@@ -375,6 +400,34 @@ img{max-width:100%;display:block}
           <small>лет практики<br>с 2019 года</small>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH (фишка) ============ -->
+<section class="section approach" id="approach">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Мой подход</span>
+      <h2 class="section-title">Лечу причину, а не симптом</h2>
+      <p class="section-sub">Моя работа начинается там, где заканчивается действие обезболивающих. Я не снимаю симптом — нахожу и устраняю причину вашего состояния.</p>
+    </div>
+    <div class="approach-grid">
+      <article class="approach-card reveal">
+        <div class="a-ico">🔍</div>
+        <h3>Поиск первопричины</h3>
+        <p>Детальное функциональное тестирование, на основе которого составляю индивидуальный план с учётом возраста, особенностей строения тела и образа жизни.</p>
+      </article>
+      <article class="approach-card reveal">
+        <div class="a-ico">🦴</div>
+        <h3>Безоперационное лечение грыж</h3>
+        <p>Персональные программы, которые снимают боль, уменьшают грыжевое выпячивание и укрепляют мышечный корсет — чтобы проблема не возвращалась.</p>
+      </article>
+      <article class="approach-card reveal">
+        <div class="a-ico">🎯</div>
+        <h3>Современные методы</h3>
+        <p>Сухая игла, мобилизация суставов, дозированная нагрузка и физиотерапия — для быстрого снятия спазма и устойчивого результата.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -490,29 +543,25 @@ img{max-width:100%;display:block}
       <span class="eyebrow">Обо мне</span>
       <h2 class="section-title">Братусь Михаил Андреевич</h2>
       <p class="lead">Врач-реабилитолог, врач ЛФК и спортивной медицины, врач-терапевт. Более 7 лет помогаю пациентам вернуться к полноценной жизни без боли.</p>
-      <p>Специализируюсь на <strong>комплексном консервативном восстановлении</strong> при заболеваниях и последствиях травм опорно-двигательного аппарата. В основе работы — доказательная медицина, дозированная нагрузка и индивидуальные протоколы под каждого пациента.</p>
+      <p>Несколько лет <strong>руководил медицинской службой полка</strong> — получил большой опыт работы с самыми разными нозологиями, как хирургическими, так и терапевтическими. Этот опыт позволяет видеть <strong>полную картину здоровья</strong> и исключать «маски» других заболеваний, которые могут проявляться болями в спине или суставах.</p>
+      <p>Специализируюсь на <strong>комплексном консервативном восстановлении</strong> опорно-двигательного аппарата. В основе работы — доказательная медицина, функциональное тестирование, дозированная нагрузка и индивидуальные протоколы под каждого пациента. Имею сертификат проведения реабилитации после инсультов и травм на дому.</p>
       <p>Веду приём в Москве в МЦ «СМП-Мед» и «La Salute», выезжаю на дом и консультирую онлайн. Разработал веб-приложение <strong>Rehabapp</strong> для составления персональных протоколов реабилитации.</p>
     </div>
     <div class="regalia reveal">
       <div class="regalia-card">
-        <div class="regalia-ico">🎓</div>
-        <b>ВМедА им. С.М. Кирова</b>
-        <small>«Лечебное дело», 2019</small>
+        <div class="regalia-ico">🎖</div>
+        <b>7+ лет практики</b>
+        <small>С 2019 года, опыт военной медицины</small>
       </div>
       <div class="regalia-card">
-        <div class="regalia-ico">🩺</div>
-        <b>РНИМУ им. Н.И. Пирогова</b>
-        <small>Ординатура «Терапия», 2025</small>
-      </div>
-      <div class="regalia-card">
-        <div class="regalia-ico">🏃</div>
-        <b>ЛФК и спортивная медицина</b>
-        <small>АНО ДПО «ЦПКПП», 2025</small>
+        <div class="regalia-ico">🏥</div>
+        <b>Главный врач</b>
+        <small>МЦ «СМП-Мед», Москва</small>
       </div>
       <div class="regalia-card">
         <div class="regalia-ico">📺</div>
-        <b>Эксперт телеканала НТВ</b>
-        <small>Программа «За гранью»</small>
+        <b>Медэксперт ТВ</b>
+        <small>НТВ («За гранью») и Пятый канал («Ваше здоровье»)</small>
       </div>
       <div class="regalia-card">
         <div class="regalia-ico">🎤</div>
@@ -520,10 +569,67 @@ img{max-width:100%;display:block}
         <small>Организатор мед. конференций в Москве</small>
       </div>
       <div class="regalia-card">
+        <div class="regalia-ico">📱</div>
+        <b>Разработчик Rehabapp</b>
+        <small>Конструктор протоколов реабилитации</small>
+      </div>
+      <div class="regalia-card">
         <div class="regalia-ico">⭐</div>
         <b>Рейтинг 5.0</b>
         <small>Все отзывы на ПроДокторов — пятёрки</small>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUALIFICATION (образование + методы) ============ -->
+<section class="section qual" id="qualification">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Квалификация</span>
+      <h2 class="section-title">Образование и методы</h2>
+      <p class="section-sub">Базовое медицинское образование, постоянная переподготовка по реабилитации и владение современными методиками восстановления.</p>
+    </div>
+    <div class="qual-grid">
+
+      <div class="qual-col reveal">
+        <h3>🎓 Образование</h3>
+        <p class="qual-sub">Базовое медицинское образование и ординатура</p>
+        <div class="edu-item">
+          <b>Военно-медицинская академия им. С.М. Кирова</b>
+          <small>Высшее образование, «Лечебное дело» — 2019</small>
+        </div>
+        <div class="edu-item">
+          <b>РНИМУ им. Н.И. Пирогова</b>
+          <small>Ординатура «Терапия» — 2025</small>
+        </div>
+        <div class="edu-item">
+          <b>АНО ДПО «ЦПКПП»</b>
+          <small>Переподготовка: «ЛФК и спортивная медицина» (2025) и «Физическая и реабилитационная медицина» (2026)</small>
+        </div>
+        <p class="qual-label">Переподготовка по реабилитации</p>
+        <p class="method-note">Метод <strong>Маккензи</strong> (McKenzie) · мобилизация по <strong>Маллигану</strong> (Mulligan) · протоколы физической терапии позвоночника и плечевого сустава · различные протоколы реабилитации ОДА, <strong>в том числе зарубежные</strong>.</p>
+      </div>
+
+      <div class="qual-col reveal">
+        <h3>🛠 Методы и навыки</h3>
+        <p class="qual-sub">Чем восстанавливаю движение и снимаю боль</p>
+        <div class="method-list">
+          <span class="method-tag">Функциональное мышечное тестирование</span>
+          <span class="method-tag">Кинезиотерапия / ЛФК</span>
+          <span class="method-tag">Метод Маккензи</span>
+          <span class="method-tag">Мобилизация по Маллигану</span>
+          <span class="method-tag">Сухая игла (Dry Needling)</span>
+          <span class="method-tag">Постизометрическая релаксация (ПИР)</span>
+          <span class="method-tag">Мышечно-фасциальный релиз (МФР)</span>
+          <span class="method-tag">Мануальная мобилизация суставов</span>
+          <span class="method-tag">Нейромышечный массаж</span>
+          <span class="method-tag">Ударно-волновая терапия (УВТ)</span>
+          <span class="method-tag">Магнитотерапия SIS</span>
+        </div>
+        <p class="method-note"><strong>Сухая игла</strong> — мгновенно снимает глубокий мышечный спазм и убирает триггерные точки. <strong>Маллиган и мобилизация суставов</strong> — мягкие безболезненные техники для быстрого восстановления движения. Для каждого пациента методы подбираются индивидуально по результатам тестирования.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -541,38 +647,38 @@ img{max-width:100%;display:block}
       <article class="dir-card featured reveal">
         <span class="dir-tag">Основное</span>
         <div class="dir-ico">🦴</div>
-        <h3>Боль в спине и грыжи</h3>
-        <p>Безоперационное лечение (резорбция) грыж и протрузий, боли в шее и пояснице. Метод Маккензи, дозированная нагрузка.</p>
+        <h3>Спина и грыжи позвоночника</h3>
+        <p>Безоперационное лечение грыж и протрузий, хронические боли в спине и шее. Метод Маккензи, сухая игла, укрепление мышечного корсета.</p>
       </article>
 
       <article class="dir-card reveal">
         <div class="dir-ico">💪</div>
-        <h3>Боль в плече</h3>
-        <p>Тендинопатии, синдром «замороженного плеча». Восстановление объёма движений и силы.</p>
-      </article>
-
-      <article class="dir-card reveal">
-        <div class="dir-ico">🦵</div>
-        <h3>Суставы и связки</h3>
-        <p>Тендинопатии, восстановление функции суставов, мобилизация ОДА в физической терапии.</p>
+        <h3>Плечевой сустав</h3>
+        <p>Импинджмент-синдром, «замороженное плечо», тендинопатии, травмы вращательной манжеты. Восстановление объёма движений и силы.</p>
       </article>
 
       <article class="dir-card reveal">
         <div class="dir-ico">🏥</div>
         <h3>Послеоперационная реабилитация</h3>
-        <p>Эндопротезирование ТБС и КС, пластика ПКС, шов мениска. Поэтапные индивидуальные протоколы.</p>
+        <p>Ведение после эндопротезирования суставов, удаления грыж, артроскопии, пластики ПКС и шва мениска. Поэтапные индивидуальные протоколы.</p>
+      </article>
+
+      <article class="dir-card reveal">
+        <div class="dir-ico">🏃</div>
+        <h3>Спортивная медицина</h3>
+        <p>Лечение и реабилитация спортивных травм, безопасное возвращение в спорт после травм и операций, коррекция биомеханики движения.</p>
       </article>
 
       <article class="dir-card reveal">
         <div class="dir-ico">🏠</div>
         <h3>Реабилитация на дому</h3>
-        <p>Выезд на дом по Москве — восстановление после инсультов и травм, когда сложно добраться до клиники.</p>
+        <p>Выезд на дом по Москве — восстановление после инсультов и травм опорно-двигательного аппарата, когда сложно добраться до клиники.</p>
       </article>
 
       <article class="dir-card reveal">
         <div class="dir-ico">💻</div>
         <h3>Онлайн-консультации</h3>
-        <p>Разбор обследований, составление и коррекция протокола реабилитации дистанционно.</p>
+        <p>Разбор обследований и МРТ, составление и коррекция индивидуального протокола реабилитации дистанционно.</p>
       </article>
 
     </div>
