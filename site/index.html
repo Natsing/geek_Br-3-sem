@@ -233,16 +233,17 @@ img{max-width:100%;display:block}
 .pd-fallback{text-align:center;margin-top:20px}
 .pd-fallback a{color:#bcd6ea;font-size:14px;border-bottom:1px solid rgba(188,214,234,.4);padding-bottom:2px;transition:.2s}
 .pd-fallback a:hover{color:#fff;border-color:#fff}
-/* Виджет ПроДокторов: всегда показывать полный текст отзыва (фикс сворачивания при скролле на мобильных) */
-#pd_widget_big .pd-widget-review__body,
-#pd_widget_big .pd-widget-review__body--truncated{
+/* Виджет ПроДокторов: всегда показывать полный текст отзыва (фикс сворачивания при скролле на мобильных).
+   Двойной #id повышает специфичность выше правила виджета #pd_widget_big[data-new] ... */
+#pd_widget_big#pd_widget_big .pd-widget-review__body,
+#pd_widget_big#pd_widget_big .pd-widget-review__body--truncated{
   max-height:none !important;
   -webkit-line-clamp:unset !important;
   -webkit-box-orient:unset !important;
   display:block !important;
   overflow:visible !important;
 }
-#pd_widget_big .pd-widget-review__read-more{display:none !important}
+#pd_widget_big#pd_widget_big .pd-widget-review__read-more{display:none !important}
 
 /* ---------- BOOKING ---------- */
 .booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
