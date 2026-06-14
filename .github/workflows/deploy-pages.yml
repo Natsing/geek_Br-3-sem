@@ -34,11 +34,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Pages
+        # Pages включается один раз вручную: Settings → Pages → Source: GitHub Actions.
         uses: actions/configure-pages@v5
-        with:
-          # Автоматически включает GitHub Pages (Source: GitHub Actions),
-          # если он ещё не активирован в настройках репозитория.
-          enablement: true
 
       - name: Upload site/ as artifact
         uses: actions/upload-pages-artifact@v3
