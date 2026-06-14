@@ -1,0 +1,22 @@
+# Render Blueprint для приложения Rehabapp (DocBratus)
+# Документация: https://render.com/docs/blueprint-spec
+#
+# Как использовать:
+#  1. Render → New → Blueprint → подключить репозиторий Natsing/geek_Br-3-sem
+#  2. Render прочитает этот файл и создаст web-сервис автоматически.
+#  3. В настройках сервиса задать секрет GEMINI_API_KEY (значение из Google AI Studio).
+services:
+  - type: web
+    name: docbratus-rehabapp
+    runtime: node
+    rootDir: rehabapp           # приложение лежит в подпапке репозитория
+    plan: free                  # бесплатный тариф (засыпает при простое)
+    region: frankfurt           # ближайший к РФ регион
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: true            # авто-деплой при пуше в основную ветку
+    envVars:
+      - key: NODE_ENV
+        value: production       # чтобы сервер отдавал собранную статику, а не dev-сервер Vite
+      - key: GEMINI_API_KEY
+        sync: false             # секрет вводится вручную в дашборде, в репозиторий НЕ попадает
