@@ -10,7 +10,10 @@
 ├── site/        Сайт-визитка — одностраничный лендинг (HTML/CSS/JS)
 │   ├── index.html
 │   └── INSTRUCTION.md
-└── rehabapp/    Конструктор протоколов реабилитации (React + TS + Vite)  — добавляется
+└── rehabapp/    Конструктор протоколов реабилитации (React 19 + TS + Vite 6)
+    ├── src/             App.tsx, db.ts, DatabaseModal.tsx, firebaseAuth.ts
+    ├── server.ts        Express + ИИ-эндпоинт Gemini (/api/parseProtocol)
+    └── .env.example     шаблон для GEMINI_API_KEY (реальный ключ — в .env, не в git)
 ```
 
 ## 1. Сайт-визитка (`/site`)
@@ -23,7 +26,24 @@
 
 Веб-приложение для генерации печатных протоколов реабилитации (А4 landscape) с фото
 упражнений, QR-кодами и ИИ-сборкой из текста (Google Gemini). Стек: React 19 +
-TypeScript + Vite 6 + Tailwind 4. **Будет перенесён из рабочей версии.**
+TypeScript + Vite 6 + Tailwind 4 + Firebase (авторизация).
+
+### Запуск локально
+
+```bash
+cd rehabapp
+npm install
+# создайте файл .env (он в .gitignore) на основе .env.example:
+#   GEMINI_API_KEY="ваш-ключ"
+#   APP_URL="http://localhost:3000"
+npm run dev          # http://localhost:3000
+```
+
+Прод-сборка: `npm run build` → `npm start`.
+
+> **Безопасность:** `GEMINI_API_KEY` — серверный секрет, хранится только в `.env`
+> (игнорируется git) и никогда не коммитится. Firebase Web-конфиг
+> (`firebase-applet-config.json`) — клиентский идентификатор проекта, не секрет.
 
 ## Единый бренд
 
