@@ -233,6 +233,16 @@ img{max-width:100%;display:block}
 .pd-fallback{text-align:center;margin-top:20px}
 .pd-fallback a{color:#bcd6ea;font-size:14px;border-bottom:1px solid rgba(188,214,234,.4);padding-bottom:2px;transition:.2s}
 .pd-fallback a:hover{color:#fff;border-color:#fff}
+/* Виджет ПроДокторов: всегда показывать полный текст отзыва (фикс сворачивания при скролле на мобильных) */
+#pd_widget_big .pd-widget-review__body,
+#pd_widget_big .pd-widget-review__body--truncated{
+  max-height:none !important;
+  -webkit-line-clamp:unset !important;
+  -webkit-box-orient:unset !important;
+  display:block !important;
+  overflow:visible !important;
+}
+#pd_widget_big .pd-widget-review__read-more{display:none !important}
 
 /* ---------- BOOKING ---------- */
 .booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
@@ -572,13 +582,7 @@ img{max-width:100%;display:block}
     <div class="center reveal">
       <span class="eyebrow" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff">Отзывы пациентов</span>
       <h2 class="section-title">Что говорят пациенты</h2>
-      <div class="rating-block">
-        <span class="rating-num">5.0</span>
-        <div class="rating-meta">
-          <span class="stars">★★★★★</span>
-          <small>Все отзывы на ПроДокторов — максимальные</small>
-        </div>
-      </div>
+      <p class="section-sub">Реальные отзывы с ПроДокторов — рейтинг 5.0, все оценки максимальные.</p>
     </div>
 
     <div class="pd-widget-wrap reveal">
