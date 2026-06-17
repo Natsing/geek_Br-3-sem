@@ -157,6 +157,15 @@ img{max-width:100%;display:block}
 .result-photo.after{background:linear-gradient(160deg,#7fd8b4,#2ab67c)}
 .result-photo .tag{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.4);padding:2px 9px;border-radius:999px;font-size:11px;letter-spacing:.05em;z-index:2}
 .result-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+/* одиночный снимок (МРТ) */
+.ba-photos.single{grid-template-columns:1fr}
+.result-photo.mri{aspect-ratio:2/1;background:#000}
+.result-photo.mri img{object-fit:cover;object-position:center}
+.result-photo.mri .tag{background:rgba(33,150,196,.92)}
+/* текстовая карточка-отзыв (без фото) */
+.result-quotebox{aspect-ratio:2/1;background:linear-gradient(135deg,var(--sky),var(--sky-2));display:flex;align-items:center;justify-content:center;position:relative}
+.result-quotebox .qb-mark{font-family:Georgia,serif;font-size:96px;line-height:.6;color:var(--sky-3)}
+.result-quotebox .qb-tag{position:absolute;bottom:14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:600}
 .result-photo .ph-ico{opacity:.85;display:flex;flex-direction:column;align-items:center;gap:4px}
 .result-body{padding:16px 18px;flex:1;display:flex;flex-direction:column}
 .result-quote{font-size:14px;color:var(--text);font-style:italic;flex:1}
@@ -460,10 +469,7 @@ img{max-width:100%;display:block}
           <div class="result-diag">Острая боль в пояснице</div>
           <span class="result-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> Результат за 1 приём</span>
         </div>
-        <div class="ba-photos">
-          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
-          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
-        </div>
+        <div class="result-quotebox"><span class="qb-mark">&ldquo;</span><span class="qb-tag">История пациента</span></div>
         <div class="result-body">
           <p class="result-quote">«Пришёл, держась за стену от боли. Михаил Андреевич всё объяснил и подобрал нагрузку — встал своими ногами уже через 3 часа».</p>
           <div class="result-sign"><b>Пациент, 41 год</b><span class="prodoctorov">✓ ПроДокторов</span></div>
@@ -487,16 +493,15 @@ img{max-width:100%;display:block}
 
       <article class="result-card reveal">
         <div class="result-head">
-          <div class="result-diag">Боль в коленном суставе</div>
-          <span class="result-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> Результат с первого приёма</span>
+          <div class="result-diag">Боль в пояснице и копчике</div>
+          <span class="result-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> 4 месяца</span>
         </div>
-        <div class="ba-photos">
-          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
-          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        <div class="ba-photos single">
+          <div class="result-photo mri"><img src="cases/lumbar-mri.jpg" alt="МРТ поясничного отдела позвоночника" loading="lazy"><span class="tag">МРТ · поясница</span></div>
         </div>
         <div class="result-body">
-          <p class="result-quote">«Подробно разобрал снимки, объяснил, что происходит, и отработал со мной технику упражнений. После приёма ощущения в колене стали намного увереннее».</p>
-          <div class="result-sign"><b>Пациент</b><span class="prodoctorov">✓ ПроДокторов</span></div>
+          <p class="result-quote">«2,5 года мучили боли в спине и копчике — неврологи, травматологи и остеопаты предлагали только операцию. Михаил Андреевич поднял меня из лежачего положения за пару занятий без лишних лекарств, а за 4 месяца мы справились полностью».</p>
+          <div class="result-sign"><b>Пациентка</b><span class="prodoctorov">✓ ПроДокторов</span></div>
         </div>
       </article>
 
@@ -535,9 +540,8 @@ img{max-width:100%;display:block}
           <div class="result-diag">Шейный отдел после операции</div>
           <span class="result-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> Реабилитация на дому</span>
         </div>
-        <div class="ba-photos">
-          <div class="result-photo before"><span class="tag">Было</span><div class="ph-ico">📷</div></div>
-          <div class="result-photo after"><span class="tag">Стало</span><div class="ph-ico">📷</div></div>
+        <div class="ba-photos single">
+          <div class="result-photo mri"><img src="cases/neck-mri.jpg" alt="МРТ шейного отдела позвоночника" loading="lazy"><span class="tag">МРТ · шейный отдел</span></div>
         </div>
         <div class="result-body">
           <p class="result-quote">«После операции на шее было страшно двигаться. Аккуратная программа на дому — постепенно вернулись движения и уверенность».</p>
