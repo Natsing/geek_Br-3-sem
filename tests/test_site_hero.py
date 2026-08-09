@@ -68,6 +68,22 @@ class ApprovedHeroContractTests(unittest.TestCase):
         self.assertIn('href="#booking"', self.hero)
         self.assertIn('href="#results"', self.hero)
 
+    def test_headline_and_responsive_layout_match_the_v8_composition(self) -> None:
+        """Catch the geometry regressions in the approved desktop/mobile hero."""
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+
+        self.assertRegex(self.hero, r"<h1>Верну вас<br\s*/?>\s*к жизни")
+        self.assertNotIn('class="container hero-copy', self.hero)
+        self.assertIn(".hero{min-height:730px", self.html)
+        self.assertIn(".hero h1{margin:19px 0 14px;font-size:57px", self.html)
+        self.assertIn(".hero{display:flex;flex-direction:column", mobile_rules)
+        self.assertIn(".hero-copy{order:1", mobile_rules)
+        self.assertIn(".hero-visual{position:relative;order:2", mobile_rules)
+        self.assertIn(".hero-cta{display:grid;grid-template-columns:1fr", mobile_rules)
+        self.assertIn(".hero-cta .btn{width:100%", mobile_rules)
+
     def test_lower_page_html_is_unchanged_from_approach_marker(self) -> None:
         tail = self.html[self.html.index(APPROACH_MARKER) :]
         self.assertEqual(hashlib.sha256(tail.encode("utf-8")).hexdigest(), EXPECTED_TAIL_SHA256)
