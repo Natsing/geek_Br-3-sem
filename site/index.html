@@ -84,6 +84,7 @@ img{max-width:100%;display:block}
 .btn-lg{padding:16px 32px;font-size:17px}
 
 /* ---------- NAV ---------- */
+.nav,.hero{--navy:#173b64;--blue:#3798c7;--muted:#55708b}
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
@@ -105,6 +106,7 @@ img{max-width:100%;display:block}
 .nav-links a{font-size:13px;font-weight:650;color:var(--navy);transition:.2s}
 .nav-links a:hover{color:var(--blue)}
 .nav-cta{display:flex;align-items:center;gap:14px}
+.nav-cta .btn{padding:12px 20px;border:0;border-radius:11px;font-size:16px;font-weight:800;line-height:1;box-shadow:0 8px 18px rgba(55,152,199,.2)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
 
@@ -115,12 +117,12 @@ img{max-width:100%;display:block}
 .hero-photo-bg{z-index:1}
 .hero-photo-blend{position:absolute;z-index:2;inset:0;background:linear-gradient(90deg,#f9fcfe 0%,#f5fafd 56%,rgba(244,250,253,.98) 61%,rgba(244,250,253,.58) 68%,rgba(244,250,253,0) 78%),linear-gradient(180deg,#f0f8fc 0%,rgba(240,248,252,.8) 6%,rgba(240,248,252,0) 15%)}
 .hero-person{z-index:3}
-.hero-copy{position:relative;z-index:4;width:55%;padding:39px 24px 24px 28px}
-.hero .eyebrow{margin-bottom:0}
+.hero-copy{position:relative;z-index:4;width:55%;padding:39px 24px 24px max(28px,calc((100vw - var(--maxw))/2 + 28px))}
+.hero .eyebrow{padding:7px 13px;border:1px solid #7abddd;color:#2184b6;background:rgba(255,255,255,.7);font-size:10px;font-weight:850;letter-spacing:.11em;line-height:normal;margin-bottom:0}
 .hero h1{margin:19px 0 14px;font-size:57px;font-weight:800;color:var(--navy);line-height:.98;letter-spacing:-.055em}
 .hero h1 .accent{color:var(--blue)}
-.hero-sub{font-size:15px;line-height:1.55;color:var(--muted);margin:0;max-width:540px}
-.hero-sub strong{color:var(--blue);font-weight:800}
+.hero-sub{max-width:480px;color:#315675;font-size:15px;line-height:1.48;margin:0}
+.hero-sub strong{color:var(--blue);font-weight:850}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}
 .hero-cta .btn{height:46px;padding:0 22px;border-radius:11px;font-size:13px;font-weight:800}
 .hero-cta .btn-ghost{border:1.3px solid #63add1;background:rgba(255,255,255,.78);color:var(--navy)}
@@ -484,7 +486,7 @@ img{max-width:100%;display:block}
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-visual" aria-hidden="true">
+  <div class="hero-visual">
     <img class="hero-photo-bg" src="doctor-clinic.jpg" alt="" loading="eager" />
     <div class="hero-photo-blend"></div>
     <img class="hero-person" src="doctor-cutout.png" alt="" loading="eager" />

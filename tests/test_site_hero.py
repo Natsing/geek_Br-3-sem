@@ -68,6 +68,69 @@ class ApprovedHeroContractTests(unittest.TestCase):
         self.assertIn('href="#booking"', self.hero)
         self.assertIn('href="#results"', self.hero)
 
+    def test_header_cta_uses_the_approved_scoped_metrics(self) -> None:
+        expected_rule = (
+            ".nav-cta .btn{padding:12px 20px;border:0;border-radius:11px;"
+            "font-size:16px;font-weight:800;line-height:1;"
+            "box-shadow:0 8px 18px rgba(55,152,199,.2)}"
+        )
+
+        self.assertIn(expected_rule, self.html)
+        self.assertIn(".nav-cta .btn:not(.burger){display:none}", self.html)
+
+    def test_hero_eyebrow_and_lead_override_legacy_metrics(self) -> None:
+        eyebrow_rule = (
+            ".hero .eyebrow{padding:7px 13px;border:1px solid #7abddd;"
+            "color:#2184b6;background:rgba(255,255,255,.7);font-size:10px;"
+            "font-weight:850;letter-spacing:.11em;line-height:normal;margin-bottom:0}"
+        )
+        lead_rule = ".hero-sub{max-width:480px;color:#315675;font-size:15px;line-height:1.48;margin:0}"
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+
+        self.assertIn(eyebrow_rule, self.html)
+        self.assertIn(lead_rule, self.html)
+        self.assertIn(".hero-sub strong{color:var(--blue);font-weight:850}", self.html)
+        self.assertIn(".hero .eyebrow{padding:5px 8px;font-size:", mobile_rules)
+        self.assertIn(".hero-sub{font-size:", mobile_rules)
+
+    def test_hero_copy_tracks_nav_alignment_on_wide_desktops(self) -> None:
+        expected_rule = (
+            ".hero-copy{position:relative;z-index:4;width:55%;"
+            "padding:39px 24px 24px max(28px,calc((100vw - var(--maxw))/2 + 28px))}"
+        )
+        expected_left_insets = {956: 28, 1440: 178}
+
+        self.assertIn(expected_rule, self.html)
+        for viewport, expected in expected_left_insets.items():
+            calculated = max(28, (viewport - 1140) / 2 + 28)
+            self.assertEqual(calculated, expected)
+
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+        self.assertIn(".hero-copy{order:1;width:auto;padding:16px 14px 8px}", mobile_rules)
+
+    def test_v8_color_tokens_are_scoped_to_nav_and_hero(self) -> None:
+        root_start = self.html.index(":root{")
+        root_end = self.html.index("\n}", root_start)
+        root_rules = self.html[root_start:root_end]
+
+        self.assertIn(".nav,.hero{--navy:#173b64;--blue:#3798c7;--muted:#55708b}", self.html)
+        self.assertIn("--navy:#0f3457", root_rules)
+        self.assertIn("--blue:#2196c4", root_rules)
+        self.assertIn("--muted:#5a7a92", root_rules)
+
+    def test_experience_badge_is_exposed_to_assistive_technology(self) -> None:
+        visual_tag = re.search(r'<div class="hero-visual"[^>]*>', self.hero)
+
+        self.assertIsNotNone(visual_tag)
+        self.assertNotIn("aria-hidden", visual_tag.group(0))
+        self.assertIn("<strong>7+</strong><span>лет практики</span>", self.hero)
+        self.assertIn('class="hero-photo-bg" src="doctor-clinic.jpg" alt=""', self.hero)
+        self.assertIn('class="hero-person" src="doctor-cutout.png" alt=""', self.hero)
+
     def test_headline_and_responsive_layout_match_the_v8_composition(self) -> None:
         """Catch the geometry regressions in the approved desktop/mobile hero."""
         mobile_start = self.html.rindex("@media (max-width:760px){")
@@ -92,7 +155,7 @@ class ApprovedHeroContractTests(unittest.TestCase):
 
         self.assertIn(".nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 28px}", self.html)
         self.assertIn(".nav .logo-text .wordmark span{font-size:inherit;font-weight:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--blue)}", self.html)
-        self.assertIn(".hero .eyebrow{margin-bottom:0}", self.html)
+        self.assertIn("line-height:normal;margin-bottom:0}", self.html)
         self.assertIn(".hero-trust{width:490px;margin-top:20px}", self.html)
         self.assertIn(".trust-title,.credential-title,.media-chip{line-height:1.15}", self.html)
         self.assertIn(".trust-sub{margin-top:3px;color:var(--muted);font-size:9.5px;line-height:1.2}", self.html)
