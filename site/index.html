@@ -86,66 +86,59 @@ img{max-width:100%;display:block}
 /* ---------- NAV ---------- */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(232,244,251,.82);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(168,208,232,.5);transition:.3s;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid #dbeaf2;transition:.3s;
 }
 .nav.scrolled{background:rgba(255,255,255,.92);box-shadow:var(--shadow-sm)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
 .logo{display:flex;align-items:center;gap:11px;font-weight:700}
-.logo-mark{
-  width:40px;height:40px;border-radius:11px;flex:none;
-  background:linear-gradient(135deg,var(--blue),var(--navy));
-  display:grid;place-items:center;color:#fff;font-family:'Inter',sans-serif;
-  font-size:19px;box-shadow:0 6px 14px rgba(15,52,87,.25);
-}
+.logo-mark{width:40px;height:40px;border-radius:11px;flex:none;background:linear-gradient(135deg,var(--blue),var(--navy));display:grid;place-items:center;color:#fff;font-family:'Inter',sans-serif;font-size:19px;box-shadow:0 6px 14px rgba(15,52,87,.25)}
 .logo-text{display:flex;flex-direction:column;line-height:1.1}
 .logo-text b{font-family:'Inter',sans-serif;font-size:17px;color:var(--navy)}
 .logo-text span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:600}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-links a{font-size:15px;font-weight:500;color:var(--text);transition:.2s}
+.nav .logo{gap:0}
+.nav .logo-mark{display:none}
+.nav .logo-text .wordmark{font-family:'Inter',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.5px;color:var(--navy)}
+.nav .logo-text .wordmark span{color:var(--blue)}
+.nav .logo-text .brand-name{margin-top:4px;font-size:8px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:13px;font-weight:650;color:var(--navy);transition:.2s}
 .nav-links a:hover{color:var(--blue)}
 .nav-cta{display:flex;align-items:center;gap:14px}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .burger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:.3s}
 
 /* ---------- HERO ---------- */
-.hero{padding:130px 0 70px;position:relative}
-.hero::before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:
-    radial-gradient(800px 400px at 78% 8%,rgba(168,208,232,.55),transparent 60%),
-    radial-gradient(600px 360px at 10% 90%,rgba(208,232,245,.6),transparent 60%);
-}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
-.hero h1{font-size:clamp(34px,5.2vw,58px);font-weight:800;color:var(--navy);line-height:1.08;letter-spacing:-.01em}
+.hero{min-height:650px;padding:80px 0 0;position:relative;overflow:hidden;background:linear-gradient(110deg,#fbfdfe 0%,#f2f9fd 54%,#e6f4fa 100%)}
+.hero-visual{position:absolute;inset:80px 0 0;z-index:1;pointer-events:none}
+.hero-photo-bg,.hero-person{position:absolute;top:0;right:0;width:52%;height:111.111%;object-fit:cover;object-position:50% 50%;transform:scale(.9);transform-origin:top right}
+.hero-photo-bg{z-index:1}
+.hero-photo-blend{position:absolute;z-index:2;inset:0;background:linear-gradient(90deg,#f9fcfe 0%,#f5fafd 56%,rgba(244,250,253,.98) 61%,rgba(244,250,253,.58) 68%,rgba(244,250,253,0) 78%),linear-gradient(180deg,#f0f8fc 0%,rgba(240,248,252,.8) 6%,rgba(240,248,252,0) 15%)}
+.hero-person{z-index:3}
+.hero-copy{position:relative;z-index:4;width:55%;padding:39px 24px 24px 28px}
+.hero h1{margin:19px 0 14px;font-size:clamp(44px,5.2vw,57px);font-weight:800;color:var(--navy);line-height:.98;letter-spacing:-.055em}
 .hero h1 .accent{color:var(--blue)}
-.hero-sub{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:520px}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-.badge{
-  display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--sky-3);
-  padding:11px 16px;border-radius:14px;box-shadow:var(--shadow-sm);
-}
-.badge .b-ico{font-size:20px;line-height:1}
-.badge b{display:block;font-size:15px;color:var(--navy);font-weight:700;line-height:1.1}
-.badge small{font-size:12px;color:var(--muted)}
+.hero-sub{font-size:15px;line-height:1.55;color:var(--muted);margin:0;max-width:540px}
+.hero-sub strong{color:var(--blue);font-weight:800}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}
+.hero-cta .btn{height:46px;padding:0 22px;border-radius:11px;font-size:13px;font-weight:800}
+.hero-cta .btn-ghost{border:1.3px solid #63add1;background:rgba(255,255,255,.78);color:var(--navy)}
+.hero-trust{width:490px;max-width:100%;margin-top:20px}
+.trust-row{display:grid;grid-template-columns:.9fr 1.1fr;gap:8px}
+.trust-card{min-height:57px;padding:10px 14px;border:1px solid #c9dfec;border-radius:10px;background:rgba(255,255,255,.88)}
+.trust-title{font-size:13px;font-weight:850;color:var(--navy)}
+.trust-sub{margin-top:3px;color:var(--muted);font-size:9.5px}
+.credentials{margin-top:8px;border:1px solid #c9dfec;border-radius:11px;background:rgba(255,255,255,.9);overflow:hidden}
+.credential{padding:10px 14px}
+.credential.expert-compact{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:12px}
+.credential-title{font-size:12.5px;font-weight:850;color:var(--navy)}
+.media-chips{display:flex;gap:6px;margin-top:7px}
+.credential.expert-compact .media-chips{margin-top:0}
+.media-chip{padding:5px 8px;border:1px solid #b9daea;border-radius:999px;background:#edf7fc;color:#285c7e;font-size:9px;font-weight:750;white-space:nowrap}
 .stars{color:#f4b740;letter-spacing:1px}
-
-.hero-photo{
-  position:relative;border-radius:var(--radius-lg);overflow:hidden;
-  background:linear-gradient(160deg,var(--sky-2),var(--sky-3));
-  box-shadow:var(--shadow);border:6px solid #fff;display:block;
-}
-.hero-photo img{width:100%;height:auto;display:block}
-.hero-photo .ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--blue-dk);text-align:center;padding:20px}
-.hero-photo .ph svg{width:64px;height:64px;opacity:.5}
-.hero-photo .ph span{font-size:13px;color:var(--muted);max-width:200px}
-.hero-photo .float-card{
-  position:absolute;left:-18px;bottom:28px;background:#fff;border-radius:16px;
-  padding:16px 22px;box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;
-}
-.float-card .fc-num{font-family:'Inter',sans-serif;font-size:38px;font-weight:800;color:var(--blue);line-height:.95;letter-spacing:-.03em}
-.float-card small{font-size:13.5px;color:var(--text);font-weight:500;line-height:1.25}
+.experience-badge{position:absolute;z-index:5;left:59%;bottom:12px;display:flex;align-items:baseline;gap:5px;padding:9px 15px 10px;border:1px solid #a9d3e7;border-left:4px solid var(--blue);border-radius:11px;background:rgba(255,255,255,.96);box-shadow:0 9px 24px rgba(23,59,100,.14);color:var(--navy);font-weight:900}
+.experience-badge strong{color:var(--blue);font-size:19px;line-height:1}
+.experience-badge span{font-size:13px}
 
 /* ---------- RESULTS (До/После) ---------- */
 .results{background:#fff}
@@ -383,12 +376,11 @@ img{max-width:100%;display:block}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
-  .hero-grid,.about-grid,.booking-grid{grid-template-columns:1fr}
-  .hero-photo{max-width:420px;margin:0 auto}
+  .about-grid,.booking-grid{grid-template-columns:1fr}
   .results-grid,.dir-grid,.slide{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .nav-links{
-    position:fixed;top:68px;left:0;right:0;background:#fff;flex-direction:column;
+    position:fixed;top:80px;left:0;right:0;background:#fff;flex-direction:column;
     gap:0;padding:0;max-height:0;overflow:hidden;transition:.35s;box-shadow:var(--shadow);
   }
   .nav-links.open{max-height:340px;padding:12px 0}
@@ -399,10 +391,39 @@ img{max-width:100%;display:block}
 @media (max-width:600px){
   .section{padding:60px 0}
   .results-grid,.dir-grid,.slide,.regalia,.footer-grid{grid-template-columns:1fr}
-  .hero{padding:110px 0 50px}
   .float-cta{display:block}
   body{padding-bottom:78px}
   .reviews .slide{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .nav-inner{height:72px}
+  .nav-links{top:72px}
+  .logo-text .wordmark{font-size:22px;letter-spacing:-.4px}
+  .logo-text .brand-name{font-size:8px;letter-spacing:.07em}
+  .hero{min-height:0;padding:72px 0 0;background:linear-gradient(150deg,#fbfdfe,#eef7fc)}
+  .hero-copy{width:auto;padding:16px 14px 8px}
+  .hero h1{margin:11px 0 8px;font-size:34px;line-height:.96}
+  .hero-sub{font-size:13px;line-height:1.42}
+  .hero-cta{margin-top:14px;gap:8px}
+  .hero-cta .btn{height:37px;padding:0 13px;border-radius:8px;font-size:10px}
+  .hero-trust{margin-top:12px}
+  .trust-row{gap:5px}
+  .trust-card{min-height:44px;padding:7px 8px;border-radius:8px}
+  .trust-title{font-size:10px}
+  .trust-sub{margin-top:1px;font-size:7.5px}
+  .credentials{margin-top:6px;border-radius:8px}
+  .credential{padding:7px 8px}
+  .credential.expert-compact{grid-template-columns:1fr;gap:5px}
+  .credential-title{font-size:9px}
+  .media-chips,.credential.expert-compact .media-chips{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:5px}
+  .media-chip{padding:4px 5px;font-size:6.4px;text-align:center;white-space:normal}
+  .hero-visual{position:relative;inset:auto;height:310px;margin-top:16px;overflow:hidden;border-radius:0 0 14px 14px;background:#eaf5fa;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 100%)}
+  .hero-photo-bg{inset:0;width:100%;height:100%;transform:none;object-position:50% 0%}
+  .hero-photo-blend{background:linear-gradient(to bottom,rgba(238,247,252,.92) 0,rgba(238,247,252,.28) 14%,rgba(238,247,252,0) 28%)}
+  .hero-person{display:none}
+  .experience-badge{left:12px;bottom:11px;gap:3px;padding:7px 10px 8px;border-radius:8px}
+  .experience-badge strong{font-size:14px}
+  .experience-badge span{font-size:9px}
 }
 
 .ico{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
@@ -437,9 +458,8 @@ img{max-width:100%;display:block}
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#top" class="logo" aria-label="Братусь М.А.">
-      <span class="logo-mark">Б</span>
-      <span class="logo-text"><b>Братусь М.А.</b><span>DocBratus</span></span>
+    <a href="#top" class="logo" aria-label="Доктор Михаил Братусь">
+      <span class="logo-text"><b class="wordmark">DOC <span>BRATUS</span></b><span class="brand-name">Доктор Михаил Братусь</span></span>
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#results">Результаты</a>
@@ -460,39 +480,32 @@ img{max-width:100%;display:block}
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="reveal">
-      <span class="eyebrow">Врач-реабилитолог · Москва</span>
+  <div class="hero-visual" aria-hidden="true">
+    <img class="hero-photo-bg" src="doctor-clinic.jpg" alt="" loading="eager" />
+    <div class="hero-photo-blend"></div>
+    <img class="hero-person" src="doctor-cutout.png" alt="" loading="eager" />
+    <div class="experience-badge"><strong>7+</strong><span>лет практики</span></div>
+  </div>
+  <div class="container hero-copy reveal">
+      <span class="eyebrow">ВРАЧ-РЕАБИЛИТОЛОГ · МОСКВА</span>
       <h1>Верну вас к жизни <span class="accent">без боли</span></h1>
-      <p class="hero-sub">Комплексное безоперационное восстановление при болях в спине и плече, грыжах и протрузиях, после травм и операций — на основе доказательной медицины.</p>
+      <p class="hero-sub">Комплексное безоперационное восстановление при болях в спине и плече, <strong>грыжах и протрузиях</strong>, после травм и операций — на основе доказательной медицины.</p>
       <div class="hero-cta">
         <a href="#booking" class="btn btn-primary btn-lg">Записаться на приём</a>
         <a href="#results" class="btn btn-ghost btn-lg">Смотреть результаты</a>
       </div>
-      <div class="hero-badges">
-        <div class="badge">
-          <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.27 5.82.85-4.21 4.1.99 5.8L12 17.77l-5.2 2.75.99-5.8-4.21-4.1 5.82-.85z"/></svg></span>
-          <div><b>5.0 <span class="stars">★★★★★</span></b><small>Рейтинг на ПроДокторов</small></div>
+      <div class="hero-trust">
+        <div class="trust-row">
+          <div class="trust-card"><div class="trust-title">5,0 <span class="stars">★★★★★</span></div><div class="trust-sub">Рейтинг на ПроДокторов</div></div>
+          <div class="trust-card"><div class="trust-title">Главный врач</div><div class="trust-sub">МЦ «СМП-Мед»</div></div>
         </div>
-        <div class="badge">
-          <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M12 6.5v5M9.5 9h5"/></svg></span>
-          <div><b>Главный врач</b><small>МЦ «СМП-Мед»</small></div>
-        </div>
-        <div class="badge">
-          <span class="b-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="13.5" rx="2"/><path d="m7.5 7 4.5-4 4.5 4"/></svg></span>
-          <div><b>Медэксперт ТВ</b><small>НТВ и Пятый канал</small></div>
+        <div class="credentials">
+          <div class="credential expert-compact">
+            <div class="credential-title">Медицинский эксперт</div>
+            <div class="media-chips"><span class="media-chip">НТВ · «За гранью»</span><span class="media-chip">Пятый канал · «Ваше здоровье»</span></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="reveal">
-      <div class="hero-photo">
-        <img src="doctor.jpg?v=7" alt="Братусь Михаил Андреевич — врач-реабилитолог" loading="eager" />
-        <div class="float-card">
-          <div class="fc-num">7+</div>
-          <small>лет практики<br>с 2019 года</small>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
