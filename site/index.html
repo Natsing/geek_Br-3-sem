@@ -113,7 +113,7 @@ img{max-width:100%;display:block}
 /* ---------- HERO ---------- */
 .hero{min-height:730px;padding:80px 0 0;position:relative;overflow:hidden;background:linear-gradient(110deg,#fbfdfe 0%,#f2f9fd 54%,#e6f4fa 100%)}
 .hero-visual{position:absolute;inset:80px 0 0;z-index:1;pointer-events:none}
-.hero-photo-bg,.hero-person{position:absolute;top:0;right:0;width:52%;height:111.111%;object-fit:cover;object-position:50% 50%;transform:scale(.9);transform-origin:top right}
+.hero-photo-bg,.hero-person{position:absolute;top:0;right:max(0px,calc((100vw - var(--maxw))/2));width:min(52%,calc(var(--maxw)*.52));height:111.111%;object-fit:cover;object-position:50% 50%;transform:scale(.9);transform-origin:top right}
 .hero-photo-bg{z-index:1}
 .hero-photo-blend{position:absolute;z-index:2;inset:0;background:linear-gradient(90deg,#f9fcfe 0%,#f5fafd 56%,rgba(244,250,253,.98) 61%,rgba(244,250,253,.58) 68%,rgba(244,250,253,0) 78%),linear-gradient(180deg,#f0f8fc 0%,rgba(240,248,252,.8) 6%,rgba(240,248,252,0) 15%)}
 .hero-person{z-index:3}
@@ -402,8 +402,9 @@ img{max-width:100%;display:block}
 @media (max-width:760px){
   .nav-inner{height:72px;padding:0 14px}
   .nav-links{top:72px}
-  .logo-text .wordmark{font-size:22px;letter-spacing:-.4px}
-  .logo-text .brand-name{font-size:8px;letter-spacing:.07em}
+  .nav .logo-text .wordmark{font-size:22px;letter-spacing:-.4px}
+  .nav .logo-text .brand-name{font-size:8px;letter-spacing:.07em;text-transform:none;color:#3e6280;font-weight:850}
+  .burger span{width:20px}
   .hero{display:flex;flex-direction:column;min-height:0;padding:72px 0 0;background:linear-gradient(150deg,#fbfdfe,#eef7fc)}
   .hero-copy{order:1;width:auto;padding:16px 14px 8px}
   .hero .eyebrow{padding:5px 8px;font-size:clamp(7px,1.32vw + 3.36px,8.5px)}

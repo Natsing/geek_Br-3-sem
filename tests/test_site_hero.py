@@ -112,6 +112,36 @@ class ApprovedHeroContractTests(unittest.TestCase):
         mobile_rules = self.html[mobile_start:mobile_end]
         self.assertIn(".hero-copy{order:1;width:auto;padding:16px 14px 8px}", mobile_rules)
 
+    def test_desktop_photo_pair_is_capped_and_centered_in_site_grid(self) -> None:
+        expected_rule = (
+            ".hero-photo-bg,.hero-person{position:absolute;top:0;"
+            "right:max(0px,calc((100vw - var(--maxw))/2));"
+            "width:min(52%,calc(var(--maxw)*.52));height:111.111%;"
+            "object-fit:cover;object-position:50% 50%;transform:scale(.9);"
+            "transform-origin:top right}"
+        )
+        expected_geometry = {
+            956: (497.12, 0, 447.408),
+            1440: (592.8, 150, 533.52),
+        }
+
+        self.assertIn(expected_rule, self.html)
+        for viewport, (expected_width, expected_right, expected_rendered) in expected_geometry.items():
+            unscaled_width = min(viewport * 0.52, 1140 * 0.52)
+            right = max(0, (viewport - 1140) / 2)
+            self.assertAlmostEqual(unscaled_width, expected_width)
+            self.assertAlmostEqual(right, expected_right)
+            self.assertAlmostEqual(unscaled_width * 0.9, expected_rendered)
+
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+        self.assertIn(
+            ".hero-photo-bg{inset:0;width:100%;height:100%;transform:none;object-position:50% 0%}",
+            mobile_rules,
+        )
+        self.assertIn(".hero-person{display:none}", mobile_rules)
+
     def test_v8_color_tokens_are_scoped_to_nav_and_hero(self) -> None:
         root_start = self.html.index(":root{")
         root_end = self.html.index("\n}", root_start)
@@ -161,6 +191,32 @@ class ApprovedHeroContractTests(unittest.TestCase):
         self.assertIn(".trust-sub{margin-top:3px;color:var(--muted);font-size:9.5px;line-height:1.2}", self.html)
         self.assertIn(".nav-inner{height:72px;padding:0 14px}", mobile_rules)
         self.assertIn(".hero-trust{width:auto;max-width:100%;margin-top:9px}", mobile_rules)
+
+    def test_mobile_header_uses_scoped_approved_specificity(self) -> None:
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+
+        self.assertIn(
+            ".nav .logo-text .wordmark{font-size:22px;letter-spacing:-.4px}",
+            mobile_rules,
+        )
+        self.assertIn(
+            ".nav .logo-text .brand-name{font-size:8px;letter-spacing:.07em;"
+            "text-transform:none;color:#3e6280;font-weight:850}",
+            mobile_rules,
+        )
+        self.assertIn(".burger span{width:20px}", mobile_rules)
+        self.assertIn(
+            ".nav .logo-text .wordmark{font-family:'Inter',sans-serif;font-size:24px;"
+            "font-weight:900;letter-spacing:-.5px;color:var(--navy)}",
+            self.html,
+        )
+        self.assertIn(
+            ".nav .logo-text .brand-name{margin-top:4px;font-size:8px;"
+            "letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:800}",
+            self.html,
+        )
 
     def test_lower_page_html_is_unchanged_from_approach_marker(self) -> None:
         tail = self.html[self.html.index(APPROACH_MARKER) :]
