@@ -84,6 +84,21 @@ class ApprovedHeroContractTests(unittest.TestCase):
         self.assertIn(".hero-cta{display:grid;grid-template-columns:1fr", mobile_rules)
         self.assertIn(".hero-cta .btn{width:100%", mobile_rules)
 
+    def test_v8_micro_layout_css_is_scoped_for_desktop_and_mobile(self) -> None:
+        """Protect the v8 wordmark, trust-card density, and breakpoint resets."""
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+
+        self.assertIn(".nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0 28px}", self.html)
+        self.assertIn(".nav .logo-text .wordmark span{font-size:inherit;font-weight:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--blue)}", self.html)
+        self.assertIn(".hero .eyebrow{margin-bottom:0}", self.html)
+        self.assertIn(".hero-trust{width:490px;margin-top:20px}", self.html)
+        self.assertIn(".trust-title,.credential-title,.media-chip{line-height:1.15}", self.html)
+        self.assertIn(".trust-sub{margin-top:3px;color:var(--muted);font-size:9.5px;line-height:1.2}", self.html)
+        self.assertIn(".nav-inner{height:72px;padding:0 14px}", mobile_rules)
+        self.assertIn(".hero-trust{width:auto;max-width:100%;margin-top:9px}", mobile_rules)
+
     def test_lower_page_html_is_unchanged_from_approach_marker(self) -> None:
         tail = self.html[self.html.index(APPROACH_MARKER) :]
         self.assertEqual(hashlib.sha256(tail.encode("utf-8")).hexdigest(), EXPECTED_TAIL_SHA256)
