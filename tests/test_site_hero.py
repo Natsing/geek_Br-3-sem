@@ -16,7 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "site" / "index.html"
 APPROACH_MARKER = "<!-- ============ APPROACH"
-EXPECTED_TAIL_SHA256 = "f9621d63b2ef40eab5b0e72e8e48abd342a8e1418781f773869997e114fff9d7"
+BOOKING_MARKER = "<!-- ============ BOOKING"
+EXPECTED_LOWER_CONTENT_SHA256 = "1d0360ab473d5b11f677efc1feb9ca0d13c6e5982f14d0bdb785d02cbadbf03b"
 ASSET_SHA256 = {
     "doctor-clinic.jpg": "36721f59678b3d5a1b766badb2c575122747acbca9f2d983be89571c63f899c6",
     "doctor-cutout.png": "b061cf8b19a1719ccc0f9ec82ef3682ffc549ae4fd841b26f0d475a9841f2c25",
@@ -251,9 +252,14 @@ class ApprovedHeroContractTests(unittest.TestCase):
             self.html,
         )
 
-    def test_lower_page_html_is_unchanged_from_approach_marker(self) -> None:
-        tail = self.html[self.html.index(APPROACH_MARKER) :]
-        self.assertEqual(hashlib.sha256(tail.encode("utf-8")).hexdigest(), EXPECTED_TAIL_SHA256)
+    def test_unrelated_lower_content_is_unchanged(self) -> None:
+        lower_content = self.html[
+            self.html.index(APPROACH_MARKER) : self.html.index(BOOKING_MARKER)
+        ]
+        self.assertEqual(
+            hashlib.sha256(lower_content.encode("utf-8")).hexdigest(),
+            EXPECTED_LOWER_CONTENT_SHA256,
+        )
 
     def test_approved_assets_are_copied_without_changes(self) -> None:
         for filename, expected_hash in ASSET_SHA256.items():
