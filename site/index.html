@@ -115,6 +115,7 @@ img{max-width:100%;display:block}
 .hero-visual{position:absolute;inset:80px 0 0;z-index:1;pointer-events:none}
 .hero-photo-bg,.hero-person{position:absolute;top:0;right:max(0px,calc((100vw - var(--maxw))/2));width:min(52%,calc(var(--maxw)*.52));height:111.111%;object-fit:cover;object-position:50% 50%;transform:scale(.9);transform-origin:top right}
 .hero-photo-bg{z-index:1}
+@media (min-width:1141px){.hero-photo-bg{-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 88px),transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 88px),transparent 100%)}}
 .hero-photo-blend{position:absolute;z-index:2;inset:0;background:linear-gradient(90deg,#f9fcfe 0%,#f5fafd 56%,rgba(244,250,253,.98) 61%,rgba(244,250,253,.58) 68%,rgba(244,250,253,0) 78%),linear-gradient(180deg,#f0f8fc 0%,rgba(240,248,252,.8) 6%,rgba(240,248,252,0) 15%)}
 .hero-person{z-index:3}
 .hero-copy{position:relative;z-index:4;width:55%;padding:39px 24px 24px max(28px,calc((100vw - var(--maxw))/2 + 28px))}
@@ -128,7 +129,10 @@ img{max-width:100%;display:block}
 .hero-cta .btn-ghost{border:1.3px solid #63add1;background:rgba(255,255,255,.78);color:var(--navy)}
 .hero-trust{width:490px;margin-top:20px}
 .trust-row{display:grid;grid-template-columns:.9fr 1.1fr;gap:8px}
-.trust-card{min-height:57px;padding:10px 14px;border:1px solid #c9dfec;border-radius:10px;background:rgba(255,255,255,.88)}
+.trust-card{display:block;min-height:57px;padding:10px 14px;border:1px solid #c9dfec;border-radius:10px;background:rgba(255,255,255,.88);color:inherit;text-decoration:none}
+.trust-link{transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease}
+.trust-link:hover{border-color:#7abddd;background:#fff;transform:translateY(-1px);box-shadow:0 6px 14px rgba(23,59,100,.09)}
+.trust-link:focus-visible{outline:3px solid rgba(55,152,199,.28);outline-offset:2px}
 .trust-title{font-size:13px;font-weight:850;color:var(--navy)}
 .trust-sub{margin-top:3px;color:var(--muted);font-size:9.5px;line-height:1.2}
 .credentials{margin-top:8px;border:1px solid #c9dfec;border-radius:11px;background:rgba(255,255,255,.9);overflow:hidden}
@@ -411,19 +415,19 @@ img{max-width:100%;display:block}
   .hero h1{margin:11px 0 8px;font-size:34px;line-height:.96}
   .hero-sub{font-size:clamp(9.5px,2.19vw + 3.46px,12px);line-height:1.42}
   .hero-cta{display:grid;grid-template-columns:1fr;margin-top:10px;gap:6px}
-  .hero-cta .btn{width:100%;height:clamp(34px,5.27vw + 19.46px,40px);padding:0 13px;border-radius:8px;font-size:clamp(10px,1.75vw + 5.17px,12px)}
+  .hero-cta .btn{width:100%;height:44px;padding:0 13px;border-radius:8px;font-size:13px}
   .hero-trust{width:auto;max-width:100%;margin-top:9px}
   .trust-row{gap:5px}
   .trust-card{min-height:43px;padding:7px 8px;border-radius:8px}
-  .trust-title{font-size:9.5px}
-  .stars{font-size:7px}
-  .trust-sub{margin-top:1px;font-size:7px}
+  .trust-title{font-size:11px}
+  .stars{font-size:8px}
+  .trust-sub{margin-top:2px;font-size:9px}
   .credentials{margin-top:6px;border-radius:8px}
   .credential{padding:7px 8px}
   .credential.expert-compact{grid-template-columns:1fr;gap:5px}
-  .credential-title{font-size:9px}
+  .credential-title{font-size:11px}
   .media-chips,.credential.expert-compact .media-chips{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:5px}
-  .media-chip{padding:4px 5px;font-size:6.4px;text-align:center;white-space:normal}
+  .media-chip{padding:5px 6px;font-size:8.5px;line-height:1.25;text-align:center;white-space:normal}
   .hero-visual{position:relative;order:2;inset:auto;height:310px;margin-top:16px;overflow:hidden;border-radius:0 0 14px 14px;background:#eaf5fa;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 100%)}
   .hero-photo-bg{inset:0;width:100%;height:100%;transform:none;object-position:50% 0%}
   .hero-photo-blend{background:linear-gradient(to bottom,rgba(238,247,252,.92) 0,rgba(238,247,252,.28) 14%,rgba(238,247,252,0) 28%)}
@@ -503,8 +507,8 @@ img{max-width:100%;display:block}
       </div>
       <div class="hero-trust">
         <div class="trust-row">
-          <div class="trust-card"><div class="trust-title">5,0 <span class="stars">★★★★★</span></div><div class="trust-sub">Рейтинг на ПроДокторов</div></div>
-          <div class="trust-card"><div class="trust-title">Главный врач</div><div class="trust-sub">МЦ «СМП-Мед»</div></div>
+          <a href="#reviews" class="trust-card trust-link" aria-label="Отзывы на ПроДокторов"><div class="trust-title">5,0 <span class="stars">★★★★★</span></div><div class="trust-sub">Отзывы на ПроДокторов →</div></a>
+          <a href="#about" class="trust-card trust-link" aria-label="Обо мне"><div class="trust-title">Главный врач</div><div class="trust-sub">Обо мне →</div></a>
         </div>
         <div class="credentials">
           <div class="credential expert-compact">

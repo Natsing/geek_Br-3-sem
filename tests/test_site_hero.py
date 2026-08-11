@@ -68,6 +68,39 @@ class ApprovedHeroContractTests(unittest.TestCase):
         self.assertIn('href="#booking"', self.hero)
         self.assertIn('href="#results"', self.hero)
 
+    def test_selected_trust_cards_are_clear_navigation_links(self) -> None:
+        self.assertRegex(
+            self.hero,
+            r'<a href="#reviews" class="trust-card trust-link"[^>]*>.*?Отзывы на ПроДокторов →.*?</a>',
+        )
+        self.assertRegex(
+            self.hero,
+            r'<a href="#about" class="trust-card trust-link"[^>]*>.*?Обо мне →.*?</a>',
+        )
+        self.assertIn(".trust-link:hover", self.html)
+        self.assertIn(".trust-link:focus-visible", self.html)
+
+    def test_desktop_clinic_background_fades_at_the_outer_right_edge(self) -> None:
+        desktop_fade = (
+            "@media (min-width:1141px){"
+            ".hero-photo-bg{-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 88px),transparent 100%);"
+            "mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 88px),transparent 100%)}}"
+        )
+
+        self.assertIn(desktop_fade, self.html)
+        self.assertNotIn(".hero-person{-webkit-mask-image", self.html)
+
+    def test_mobile_trust_copy_and_actions_use_readable_metrics(self) -> None:
+        mobile_start = self.html.rindex("@media (max-width:760px){")
+        mobile_end = self.html.index("\n}\n\n.ico", mobile_start)
+        mobile_rules = self.html[mobile_start:mobile_end]
+
+        self.assertIn(".hero-cta .btn{width:100%;height:44px;padding:0 13px;border-radius:8px;font-size:13px}", mobile_rules)
+        self.assertIn(".trust-title{font-size:11px}", mobile_rules)
+        self.assertIn(".trust-sub{margin-top:2px;font-size:9px}", mobile_rules)
+        self.assertIn(".credential-title{font-size:11px}", mobile_rules)
+        self.assertIn(".media-chip{padding:5px 6px;font-size:8.5px;line-height:1.25;text-align:center;white-space:normal}", mobile_rules)
+
     def test_header_cta_uses_the_approved_scoped_metrics(self) -> None:
         expected_rule = (
             ".nav-cta .btn{padding:12px 20px;border:0;border-radius:11px;"
