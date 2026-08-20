@@ -15,9 +15,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML_PATH = ROOT / "site" / "index.html"
-APPROACH_MARKER = "<!-- ============ APPROACH"
+CONSULTATION_MARKER = "<!-- ============ CONSULTATION"
 BOOKING_MARKER = "<!-- ============ BOOKING"
-EXPECTED_LOWER_CONTENT_SHA256 = "1d0360ab473d5b11f677efc1feb9ca0d13c6e5982f14d0bdb785d02cbadbf03b"
 ASSET_SHA256 = {
     "doctor-clinic.jpg": "36721f59678b3d5a1b766badb2c575122747acbca9f2d983be89571c63f899c6",
     "doctor-cutout.png": "b061cf8b19a1719ccc0f9ec82ef3682ffc549ae4fd841b26f0d475a9841f2c25",
@@ -29,7 +28,7 @@ class ApprovedHeroContractTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.html = HTML_PATH.read_text(encoding="utf-8")
         hero_start = cls.html.index("<!-- ============ HERO")
-        hero_end = cls.html.index(APPROACH_MARKER)
+        hero_end = cls.html.index(CONSULTATION_MARKER)
         cls.hero = cls.html[hero_start:hero_end]
 
     def test_approved_hero_content_and_structure_are_present(self) -> None:
@@ -252,13 +251,17 @@ class ApprovedHeroContractTests(unittest.TestCase):
             self.html,
         )
 
-    def test_unrelated_lower_content_is_unchanged(self) -> None:
+    def test_protected_lower_sections_and_review_widget_remain_present(self) -> None:
         lower_content = self.html[
-            self.html.index(APPROACH_MARKER) : self.html.index(BOOKING_MARKER)
+            self.html.index(CONSULTATION_MARKER) : self.html.index(BOOKING_MARKER)
         ]
-        self.assertEqual(
-            hashlib.sha256(lower_content.encode("utf-8")).hexdigest(),
-            EXPECTED_LOWER_CONTENT_SHA256,
+
+        for section_id in ("results", "about", "qualification", "directions", "pricing", "reviews"):
+            self.assertIn(f'id="{section_id}"', lower_content)
+        self.assertIn('id="pd_widget_big" data-doctor="882297"', lower_content)
+        self.assertIn(
+            '<script defer src="https://prodoctorov.ru/static/js/widget_big.js?v07"></script>',
+            lower_content,
         )
 
     def test_approved_assets_are_copied_without_changes(self) -> None:

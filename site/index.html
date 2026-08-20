@@ -187,6 +187,9 @@ img{max-width:100%;display:block}
 .about-text p{color:var(--muted);font-size:16px;margin-top:16px}
 .about-text .lead{font-size:18px;color:var(--text)}
 .about-text strong{color:var(--navy)}
+.about-side{display:flex;flex-direction:column;gap:18px}
+.about-photo{height:310px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--sky-2);box-shadow:var(--shadow-sm);background:#fff}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 23%}
 .regalia{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .regalia-card{
   background:#fff;border:1px solid var(--sky-2);border-radius:14px;padding:18px;
@@ -214,14 +217,41 @@ img{max-width:100%;display:block}
 .dir-card.featured .dir-ico{background:rgba(255,255,255,.12);color:#fff}
 .dir-card.featured .dir-tag{position:absolute;top:18px;right:18px;background:var(--blue);color:#fff;font-size:11px;font-weight:600;padding:4px 11px;border-radius:999px;letter-spacing:.04em}
 
-/* ---------- APPROACH (фишка: лечу причину) ---------- */
-.approach{background:#fff}
-.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
-.approach-card{background:linear-gradient(180deg,#fff,#f4fafe);border:1px solid var(--sky-2);border-radius:var(--radius);padding:28px;transition:.25s}
-.approach-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.approach-card .a-ico{width:54px;height:54px;border-radius:14px;background:var(--sky);display:grid;place-items:center;color:var(--blue);margin-bottom:16px;font-size:24px}
-.approach-card h3{font-size:19px;color:var(--navy)}
-.approach-card p{color:var(--muted);font-size:14.5px;margin-top:10px}
+/* ---------- CONSULTATION ---------- */
+.consultation{background:#fff}
+.consultation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px;align-items:stretch}
+.consultation-step{background:#fafdff;border:1px solid var(--sky-2);border-radius:var(--radius);padding:25px;transition:.25s;position:relative}
+.consultation-step:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--sky-3)}
+.consultation-number{width:40px;height:40px;border-radius:12px;background:var(--sky);color:var(--blue-dk);display:grid;place-items:center;font-weight:800;font-size:14px;margin-bottom:18px}
+.consultation-step h3{font-size:18px;color:var(--navy);line-height:1.25}
+.consultation-step p{color:var(--muted);font-size:14px;margin-top:9px}
+.consultation-step.outcome{background:var(--navy);border-color:var(--navy);box-shadow:0 14px 32px rgba(15,52,87,.18)}
+.consultation-step.outcome .consultation-number{background:rgba(255,255,255,.14);color:#fff}
+.consultation-step.outcome h3{color:#fff}
+.consultation-step.outcome p{color:#dceaf5}
+.consultation-result{display:inline-block;margin-top:18px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em}
+.consultation-note{margin:22px auto 0;max-width:760px;text-align:center;color:var(--muted);font-size:13px}
+.consultation-note strong{color:var(--navy)}
+
+/* ---------- PERSONAL MEMO ---------- */
+.memo{background:var(--sky)}
+.memo-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:center}
+.memo-copy .section-sub{margin-left:0}
+.memo-points{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:24px}
+.memo-points li{position:relative;padding-left:25px;color:var(--text);font-size:14px}
+.memo-points li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800}
+.memo-demo-note{margin-top:24px;padding:14px 16px;border:1px solid var(--sky-3);border-radius:12px;background:rgba(255,255,255,.72);color:var(--muted);font-size:13px}
+.memo-demo-note strong{color:var(--navy)}
+.memo-carousel{min-width:0}
+.memo-viewport{overflow:hidden;border-radius:var(--radius-lg);border:1px solid var(--sky-2);background:#fff;box-shadow:var(--shadow);aspect-ratio:4/5}
+.memo-track{display:flex;height:100%;transition:transform .55s cubic-bezier(.45,.05,.2,1);will-change:transform}
+.memo-slide{min-width:100%;height:100%;overflow:hidden;background:#fff}
+.memo-slide img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.memo-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
+.memo-control{border:1px solid var(--sky-3);border-radius:999px;background:#fff;color:var(--navy);padding:9px 15px;font:inherit;font-size:13px;font-weight:650;cursor:pointer;transition:.2s}
+.memo-control:hover,.memo-control:focus-visible{border-color:var(--blue);color:var(--blue);outline:none}
+.memo-page{min-width:38px;padding:9px 11px}
+.memo-page.active{background:var(--blue);border-color:var(--blue);color:#fff}
 
 /* ---------- QUALIFICATION (образование + методы) ---------- */
 .qual{background:linear-gradient(180deg,#fff,var(--sky))}
@@ -237,7 +267,8 @@ img{max-width:100%;display:block}
 .method-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
 .method-tag{background:var(--sky);color:var(--blue-dk);border:1px solid var(--sky-3);border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:500}
 .method-note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.5}
-@media (max-width:860px){.approach-grid,.qual-grid{grid-template-columns:1fr}}
+@media (max-width:980px){.consultation-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.qual-grid,.memo-layout{grid-template-columns:1fr}.memo-layout{gap:34px}.memo-copy{text-align:center}.memo-copy .section-sub{margin-left:auto}.memo-points{max-width:560px;margin-left:auto;margin-right:auto;text-align:left}.memo-demo-note{max-width:620px;margin-left:auto;margin-right:auto}.memo-carousel{width:min(100%,620px);margin:0 auto}}
 
 /* ---------- PRICING ---------- */
 .pricing{background:linear-gradient(180deg,var(--sky),#fff)}
@@ -253,6 +284,12 @@ img{max-width:100%;display:block}
 .pc-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--blue);font-weight:800}
 .pc-price{font-size:23px;font-weight:800;color:var(--navy);letter-spacing:-.02em;line-height:1.1}
 .pc-price small{display:block;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:3px}
+.clinic-tiers{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.clinic-tier{border-top:1px solid var(--sky-2);padding-top:12px}
+.clinic-tier:first-child{border-top:0;padding-top:0}
+.clinic-tier b{display:block;color:var(--navy);font-size:13px;line-height:1.35}
+.clinic-tier strong{display:block;color:var(--navy);font-size:22px;line-height:1.1;margin-top:4px}
+.clinic-tier small{display:block;color:var(--muted);font-size:12px;line-height:1.4;margin-top:4px}
 .price-card .btn{width:100%;margin-top:16px}
 .price-card.featured{background:linear-gradient(160deg,var(--navy),#0a2540);border-color:var(--navy)}
 .price-card.featured h3,.price-card.featured .pc-price{color:#fff}
@@ -267,6 +304,7 @@ img{max-width:100%;display:block}
 .price-fishka b{font-size:17px;display:block}
 .price-fishka p{font-size:14px;color:#e3f1fb;margin-top:4px}
 .price-note{margin-top:18px;font-size:13px;color:var(--muted);text-align:center;max-width:760px;margin-left:auto;margin-right:auto}
+.price-procedure-note{margin-top:24px;padding:16px 20px;border:1px solid var(--sky-3);border-radius:14px;background:#fff;color:var(--text);font-size:13.5px;text-align:center}
 @media (max-width:980px){.price-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.price-grid{grid-template-columns:1fr}.price-fishka{flex-direction:column;text-align:center}}
 /* премиум-пакет (флагман) */
@@ -336,6 +374,16 @@ img{max-width:100%;display:block}
 }
 #pd_widget_big#pd_widget_big .pd-widget-review__read-more{display:none !important}
 
+/* ---------- FAQ ---------- */
+.faq{background:#f8fcfe}
+.faq-grid{display:flex;flex-direction:column;gap:12px;max-width:900px;margin:40px auto 0}
+.faq details{background:#fff;border:1px solid var(--sky-2);border-radius:14px;padding:0 20px;box-shadow:var(--shadow-sm);transition:.2s}
+.faq details[open]{border-color:var(--sky-3)}
+.faq summary{cursor:pointer;padding:19px 0;color:var(--navy);font-size:15px;font-weight:750;line-height:1.35}
+.faq summary::marker{color:var(--blue)}
+.faq details p{padding:0 0 19px;color:var(--muted);font-size:14px;line-height:1.6}
+.faq details strong{color:var(--navy)}
+
 /* ---------- BOOKING ---------- */
 .booking-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
 .adv-list{display:flex;flex-direction:column;gap:18px;margin-top:30px}
@@ -354,8 +402,13 @@ img{max-width:100%;display:block}
 .contact-ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;color:#fff}
 .contact-ico.tg{background:#229ed9}
 .contact-ico.ph{background:var(--green)}
-.contact-ico.max{background:var(--navy)}
-.contact-ico.clinic{background:var(--blue)}
+.contact-ico.max{background:#fff;border:1px solid var(--sky-2)}
+.max-wordmark{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:.86;font-size:9px;font-weight:900;letter-spacing:-.03em}
+.max-wordmark span:first-child{color:var(--navy)}
+.max-wordmark span:last-child{color:var(--blue);font-size:8px}
+.contact-ico.clinic{background:#fff;border:1px solid var(--sky-2);overflow:hidden}
+.contact-ico.clinic img{width:100%;height:100%;object-fit:cover}
+.contact-ico.clinic.smp img{object-fit:contain;padding:4px}
 .cb-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:18px 0 4px}
 .contact-row .c-meta{flex:1}
 .contact-row small{font-size:12px;color:var(--muted);display:block}
@@ -398,7 +451,21 @@ img{max-width:100%;display:block}
 }
 @media (max-width:600px){
   .section{padding:60px 0}
-  .results-grid,.dir-grid,.slide,.regalia,.footer-grid{grid-template-columns:1fr}
+  .consultation-grid,.results-grid,.dir-grid,.slide,.regalia,.faq-grid,.footer-grid{grid-template-columns:1fr}
+  .consultation-step{padding:22px}
+  .memo-layout{row-gap:22px}
+  .memo-copy{display:contents}
+  .memo-copy .eyebrow{order:1;justify-self:center;margin-bottom:0}
+  .memo-copy .section-title{order:2;text-align:center}
+  .memo-copy .section-sub{order:3;text-align:center;margin-top:-8px}
+  .memo-carousel{order:4}
+  .memo-carousel{margin-top:6px}
+  .memo-points{order:5;margin-top:8px}
+  .memo-demo-note{order:6;margin-top:0}
+  .memo-viewport{aspect-ratio:4/5}
+  .memo-controls{gap:7px}
+  .memo-control{padding:8px 12px;font-size:12px}
+  .about-photo{height:360px}
   .float-cta{display:block}
   body{padding-bottom:78px}
   .reviews .slide{grid-template-columns:1fr}
@@ -520,30 +587,71 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
-<!-- ============ APPROACH (фишка) ============ -->
-<section class="section approach" id="approach">
+<!-- ============ CONSULTATION ============ -->
+<section class="section consultation" id="consultation">
   <div class="container">
     <div class="center reveal">
-      <span class="eyebrow">Мой подход</span>
-      <h2 class="section-title">Лечу причину, а не симптом</h2>
-      <p class="section-sub">Моя работа начинается там, где заканчивается действие обезболивающих. Я не снимаю симптом — нахожу и устраняю причину вашего состояния.</p>
+      <span class="eyebrow">Первичный приём</span>
+      <h2 class="section-title">Как проходит первичная консультация</h2>
+      <p class="section-sub">За один приём разбираемся в причине жалоб, оцениваем движение и формируем понятный план восстановления.</p>
     </div>
-    <div class="approach-grid">
-      <article class="approach-card reveal">
-        <div class="a-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-        <h3>Поиск первопричины</h3>
-        <p>Детальное функциональное тестирование, на основе которого составляю индивидуальный план с учётом возраста, особенностей строения тела и образа жизни.</p>
+    <div class="consultation-grid">
+      <article class="consultation-step reveal">
+        <span class="consultation-number">01</span>
+        <h3>Жалобы и документы</h3>
+        <p>Обсуждаем симптомы, историю заболевания и ранее полученное лечение. Изучаю имеющиеся снимки и заключения врачей.</p>
       </article>
-      <article class="approach-card reveal">
-        <div class="a-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M8 6.5h8M8 10h8M8 13.5h8M8 17h8"/></svg></div>
-        <h3>Безоперационное лечение грыж</h3>
-        <p>Персональные программы, которые снимают боль, уменьшают грыжевое выпячивание и укрепляют мышечный корсет — чтобы проблема не возвращалась.</p>
+      <article class="consultation-step reveal">
+        <span class="consultation-number">02</span>
+        <h3>Осмотр и функциональное тестирование</h3>
+        <p>Оцениваю движения, силу и ограничения, провожу необходимые тесты и сопоставляю их с вашими жалобами.</p>
       </article>
-      <article class="approach-card reveal">
-        <div class="a-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg></div>
-        <h3>Современные методы</h3>
-        <p>Сухая игла, мобилизация суставов, дозированная нагрузка и физиотерапия — для быстрого снятия спазма и устойчивого результата.</p>
+      <article class="consultation-step reveal">
+        <span class="consultation-number">03</span>
+        <h3>План восстановления</h3>
+        <p>Объясняю наиболее вероятную причину жалоб, составляю рекомендации, подбираю ЛФК и при необходимости физиотерапию.</p>
       </article>
+      <article class="consultation-step outcome reveal">
+        <span class="consultation-number">04</span>
+        <h3>Индивидуальная памятка</h3>
+        <p>Подбираю упражнения, даю ответы на вопросы и составляю персональную PDF-памятку с фотографиями ваших упражнений, техникой выполнения и дозировкой.</p>
+        <span class="consultation-result">Результат приёма</span>
+      </article>
+    </div>
+    <p class="consultation-note reveal"><strong>Персональная памятка входит в формат консультации за 6 900 ₽.</strong> Базовый приём за 4 500 ₽ включает заключение врача и рекомендации без памятки.</p>
+  </div>
+</section>
+
+<!-- ============ PERSONAL MEMO ============ -->
+<section class="section memo" id="memo">
+  <div class="container memo-layout">
+    <div class="memo-copy reveal">
+      <span class="eyebrow">Результат консультации</span>
+      <h2 class="section-title">Пример персональной памятки</h2>
+      <p class="section-sub">После приёма у вас остаётся понятный план, к которому можно вернуться дома: что делать, как выполнять упражнения и какую нагрузку использовать.</p>
+      <ul class="memo-points">
+        <li>Ваши рекомендации, ограничения и красные флаги</li>
+        <li>Фотографии упражнений с подробной техникой</li>
+        <li>Количество повторений, подходов и критерии прогрессии</li>
+      </ul>
+      <p class="memo-demo-note"><strong>Демонстрационный образец:</strong> пример для виртуального пациента Иванова Ивана Ивановича. В вашей памятке будут ваши данные, рекомендации и фотографии упражнений.</p>
+    </div>
+
+    <div class="memo-carousel reveal" aria-label="Пример персональной памятки">
+      <div class="memo-viewport" aria-live="polite">
+        <div class="memo-track" id="memo-track">
+          <figure class="memo-slide">
+            <img src="memo/ivanov-red-flags.png" alt="Фрагмент персональной памятки: рекомендации и красные флаги" loading="lazy" />
+          </figure>
+          <figure class="memo-slide">
+            <img src="memo/ivanov-exercises.png" alt="Фрагмент персональной памятки: упражнения с фотографиями и описанием" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+      <div class="memo-controls" aria-label="Управление примером памятки">
+        <button class="memo-control memo-page active" type="button" data-memo-slide="0" aria-label="Показать рекомендации">1</button>
+        <button class="memo-control memo-page" type="button" data-memo-slide="1" aria-label="Показать упражнения">2</button>
+      </div>
     </div>
   </div>
 </section>
@@ -658,36 +766,41 @@ img{max-width:100%;display:block}
       <p>Специализируюсь на <strong>комплексном консервативном восстановлении</strong> опорно-двигательного аппарата. В основе работы — доказательная медицина, функциональное тестирование, дозированная нагрузка и индивидуальные протоколы под каждого пациента. Имею сертификат проведения реабилитации после инсультов и травм на дому.</p>
       <p>Веду приём в Москве в МЦ «СМП-Мед» и «La Salute», выезжаю на дом и консультирую онлайн. Разработал веб-приложение <strong>Rehabapp</strong> для составления персональных протоколов реабилитации.</p>
     </div>
-    <div class="regalia reveal">
-      <div class="regalia-card">
+    <div class="about-side reveal">
+      <figure class="about-photo">
+        <img src="doctor.jpg" alt="Врач-реабилитолог Михаил Братусь" loading="lazy" />
+      </figure>
+      <div class="regalia">
+        <div class="regalia-card">
         <div class="regalia-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.6 13l-1.3 7.5L12 17.7l4.7 2.8L15.4 13"/></svg></div>
         <b>7+ лет практики</b>
         <small>С 2019 года, опыт военной медицины</small>
-      </div>
-      <div class="regalia-card">
+        </div>
+        <div class="regalia-card">
         <div class="regalia-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M12 6.5v5M9.5 9h5"/></svg></div>
         <b>Главный врач</b>
         <small>МЦ «СМП-Мед», Москва</small>
-      </div>
-      <div class="regalia-card">
+        </div>
+        <div class="regalia-card">
         <div class="regalia-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="7" width="19" height="13.5" rx="2"/><path d="m7.5 7 4.5-4 4.5 4"/></svg></div>
         <b>Медэксперт ТВ</b>
         <small>НТВ («За гранью») и Пятый канал («Ваше здоровье»)</small>
-      </div>
-      <div class="regalia-card">
+        </div>
+        <div class="regalia-card">
         <div class="regalia-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5M8.5 21.5h7"/></svg></div>
         <b>Организатор и спикер</b>
         <small>Организатор и спикер мед. конференций, лектор по доврачебной помощи и реабилитации</small>
-      </div>
-      <div class="regalia-card">
+        </div>
+        <div class="regalia-card">
         <div class="regalia-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2" width="11" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
         <b>Разработчик Rehabapp</b>
         <small>Конструктор протоколов реабилитации</small>
-      </div>
-      <div class="regalia-card">
+        </div>
+        <div class="regalia-card">
         <div class="regalia-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.27 5.82.85-4.21 4.1.99 5.8L12 17.77l-5.2 2.75.99-5.8-4.21-4.1 5.82-.85z"/></svg></div>
         <b>Рейтинг 5.0</b>
         <small>Все отзывы на ПроДокторов — пятёрки</small>
+        </div>
       </div>
     </div>
   </div>
@@ -812,12 +925,22 @@ img{max-width:100%;display:block}
         <h3>Приём в клинике</h3>
         <span class="pc-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> 60 минут</span>
         <ul class="pc-list">
-          <li>Полноценный приём с доступом к реабилитационному оборудованию</li>
           <li>Осмотр и функциональное тестирование</li>
-          <li>Индивидуальный план реабилитации</li>
+          <li>Заключение врача и рекомендации</li>
           <li>м. Планерная (СМП МЕД) · м. Таганская (La Salute)</li>
         </ul>
-        <div class="pc-price">5 000 – 7 000 ₽</div>
+        <div class="clinic-tiers">
+          <div class="clinic-tier">
+            <b>Первичный приём</b>
+            <strong>4 500 ₽</strong>
+            <small>Заключение врача и рекомендации</small>
+          </div>
+          <div class="clinic-tier">
+            <b>Приём + индивидуальная PDF-памятка</b>
+            <strong>6 900 ₽</strong>
+            <small>Рекомендации и памятка с вашими упражнениями</small>
+          </div>
+        </div>
         <a href="#booking" class="btn btn-ghost">Записаться</a>
       </article>
 
@@ -831,7 +954,7 @@ img{max-width:100%;display:block}
           <li>Первое полноценное занятие</li>
           <li>Упражнения адаптируем под ваши домашние условия</li>
         </ul>
-        <div class="pc-price">8 000 – 10 000 ₽<small>в пределах МКАД · за МКАД — индивидуально</small></div>
+        <div class="pc-price">10 000 ₽<small>в пределах МКАД · за МКАД — по согласованию</small></div>
         <a href="#booking" class="btn btn-ghost">Записаться</a>
       </article>
 
@@ -851,18 +974,20 @@ img{max-width:100%;display:block}
 
       <article class="price-card reveal">
         <div class="pc-ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16l5-5 4 3 3-3 6 6"/><circle cx="8.5" cy="9" r="1.5"/></svg></div>
-        <h3>Разбор МРТ онлайн</h3>
-        <span class="pc-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> 30 минут</span>
+        <h3>Разбор МРТ / КТ</h3>
+        <span class="pc-dur"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.2 1.8"/></svg> 60 минут</span>
         <ul class="pc-list">
           <li>Анализ снимков МРТ / КТ</li>
           <li>Понятное заключение и рекомендации</li>
           <li>Нужна ли реабилитация и какая именно</li>
         </ul>
-        <div class="pc-price">2 500 ₽<small>примерная цена — на ваше подтверждение</small></div>
+        <div class="pc-price">5 000 ₽</div>
         <a href="#booking" class="btn btn-ghost">Записаться</a>
       </article>
 
     </div>
+
+    <p class="price-procedure-note reveal">Назначенные по результатам первичного приёма манипуляции и физиопроцедуры в стоимость консультации не входят и оплачиваются отдельно.</p>
 
     <div class="price-premium reveal">
       <div class="pp-l">
@@ -893,7 +1018,7 @@ img{max-width:100%;display:block}
       </div>
     </div>
 
-    <p class="price-note">Цены ориентировочные. Итоговая стоимость определяется после осмотра. Информация на сайте не является публичной офертой.</p>
+    <p class="price-note">Информация на сайте не является публичной офертой. Необходимость дополнительных процедур определяется по результатам консультации.</p>
   </div>
 </section>
 
@@ -937,6 +1062,35 @@ img{max-width:100%;display:block}
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Перед приёмом</span>
+      <h2 class="section-title">Ответы на частые вопросы</h2>
+      <p class="section-sub">Коротко о подготовке, длительности и доступных форматах консультации.</p>
+    </div>
+    <div class="faq-grid">
+      <details class="reveal">
+        <summary>Сколько длится приём?</summary>
+        <p>Приём в клинике, онлайн-консультация и разбор МРТ / КТ занимают <strong>60 минут</strong>. Выезд на дом длится <strong>60–80 минут</strong>. Если необходимы дополнительные манипуляции или физиопроцедуры, посещение может занять больше времени.</p>
+      </details>
+      <details class="reveal">
+        <summary>Нужно ли заранее делать МРТ или сдавать анализы?</summary>
+        <p>Специально проходить обследования перед консультацией не нужно. Их необходимость определяется после беседы и осмотра. Если обследования уже проводились, возьмите результаты с собой.</p>
+      </details>
+      <details class="reveal">
+        <summary>Что взять с собой?</summary>
+        <p>Возьмите имеющиеся снимки МРТ или рентгена, описания исследований, заключения врачей и ранее выданные рекомендации. Лучше принести не только текстовое описание, но и сами снимки.</p>
+      </details>
+      <details class="reveal">
+        <summary>Можно ли провести консультацию онлайн?</summary>
+        <p>Да. Онлайн-консультация длится 60 минут и включает разбор документов, беседу, доступное дистанционное тестирование и рекомендации. Если для принятия решения необходим очный осмотр, я сообщу об этом.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ============ BOOKING ============ -->
 <section class="section" id="booking">
   <div class="container booking-grid">
@@ -977,7 +1131,7 @@ img{max-width:100%;display:block}
       </a>
 
       <a class="contact-row" href="https://max.ru/u/f9LHodD0cOIYP3iUbW0GfaIq2jl4-wySOhNgUIDmhHStp5VsUGOHNSoeUzE" target="_blank" rel="noopener">
-        <div class="contact-ico max">M</div>
+        <div class="contact-ico max" aria-hidden="true"><span class="max-wordmark"><span>DOC</span><span>BRATUS</span></span></div>
         <div class="c-meta"><small>MAX — онлайн-запись</small><b>Записаться в MAX</b></div>
         <span>›</span>
       </a>
@@ -985,13 +1139,13 @@ img{max-width:100%;display:block}
       <p class="cb-label">Онлайн-запись в клиниках</p>
 
       <a class="contact-row" href="https://lasalute-clinic.ru/team/bratus-mihail-andreevich" target="_blank" rel="noopener">
-        <div class="contact-ico clinic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M12 6.5v5M9.5 9h5"/></svg></div>
+        <div class="contact-ico clinic"><img src="logos/la-salute-icon.png" alt="Логотип La Salute" loading="lazy" /></div>
         <div class="c-meta"><small>МЦ «La Salute» · Таганская</small><b>Записаться онлайн</b></div>
         <span>›</span>
       </a>
 
       <a class="contact-row" href="https://klientiks.ru/app2/OOOSMPMED" target="_blank" rel="noopener">
-        <div class="contact-ico clinic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M12 6.5v5M9.5 9h5"/></svg></div>
+        <div class="contact-ico clinic smp"><img src="logos/smp-med-icon.png" alt="Логотип СМП МЕД" loading="lazy" /></div>
         <div class="c-meta"><small>МЦ «СМП-Мед» · Планерная</small><b>Записаться онлайн</b></div>
         <span>›</span>
       </a>
@@ -1068,6 +1222,42 @@ img{max-width:100%;display:block}
   navLinks.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
   });
+
+  // Пример персональной памятки
+  var memoTrack = document.getElementById('memo-track');
+  var memoPages = Array.prototype.slice.call(document.querySelectorAll('[data-memo-slide]'));
+  var memoIndex = 0;
+  var memoPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var memoTimer;
+
+  function showMemo(index){
+    if(!memoTrack){ return; }
+    memoIndex = (index + memoPages.length) % memoPages.length;
+    memoTrack.style.transform = 'translateX(-' + (memoIndex * 100) + '%)';
+    memoPages.forEach(function(page, pageIndex){
+      var active = pageIndex === memoIndex;
+      page.classList.toggle('active', active);
+      page.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  }
+
+  function startMemoTimer(){
+    window.clearInterval(memoTimer);
+    if(!memoPaused && memoPages.length > 1){
+      memoTimer = window.setInterval(function(){ showMemo(memoIndex + 1); }, 5000);
+    }
+  }
+
+  if(memoTrack){
+    memoPages.forEach(function(page){
+      page.addEventListener('click', function(){
+        showMemo(Number(page.getAttribute('data-memo-slide')));
+        startMemoTimer();
+      });
+    });
+    showMemo(0);
+    startMemoTimer();
+  }
 
   // Reveal по скроллу
   var io = new IntersectionObserver(function(entries){
