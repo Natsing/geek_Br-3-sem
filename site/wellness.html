@@ -6,26 +6,13 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="wellness-base.css"><link rel="stylesheet" href="wellness.css">
-</head><body class="wellness-page"><header class="nav" id="nav">
-  <div class="container nav-inner">
-    <a href="index.html#top" class="logo" aria-label="Доктор Михаил Братусь">
-      <span class="logo-text"><b class="wordmark">DOC <span>BRATUS</span></b><span class="brand-name">Доктор Михаил Братусь</span></span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html#results">Результаты</a>
-      <a href="index.html#about">Обо мне</a>
-      <a href="index.html#directions">Направления</a>
-      <a href="index.html#pricing">Цены</a>
-      <a href="wellness.html" aria-current="page">Оздоровительные занятия</a>
-      <a href="index.html#reviews">Отзывы</a>
-      <a href="index.html#booking">Контакты</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="index.html#booking" class="btn btn-primary">Записаться</a>
-      <button class="burger" id="burger" aria-label="Открыть меню" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
+<link rel="stylesheet" href="navigation-v2.css"><script defer src="navigation-v2.js"></script></head><body class="wellness-page"><header class="db-header"><div class="db-bar">
+<a class="db-logo" href="index.html#top" aria-label="Доктор Михаил Братусь — главная"><b>DOC <span>BRATUS</span></b><small>Доктор Михаил Братусь</small></a>
+<nav class="db-links" id="db-navigation" aria-label="Основная навигация">
+<a href="index.html#about">Обо мне</a><a href="index.html#directions">С чем помогаю</a>
+<details class="db-services"><summary>Услуги и цены</summary><div class="db-submenu"><a href="index.html#pricing"><strong>Медицинские услуги</strong><small>Консультации и реабилитация</small></a><a href="wellness.html"><strong>Оздоровительные занятия</strong><small>Физическая активность и техника упражнений</small></a></div></details>
+<a href="index.html#reviews">Отзывы</a><a href="articles/index.html">Статьи</a><a href="index.html#booking">Контакты</a>
+</nav><a class="db-book" href="index.html#booking">Записаться</a><button class="db-toggle" type="button" aria-controls="db-navigation" aria-expanded="false">Меню</button></div></header>
 <main id="top" class="well-main"><div class="container">
   <nav class="well-switch" aria-label="Направления услуг"><a href="index.html#pricing">Медицинские услуги</a><a href="wellness.html" aria-current="page">Оздоровительные занятия</a></nav>
   <section class="well-intro-section" aria-labelledby="well-heading">
@@ -66,10 +53,4 @@
   <aside class="well-boundary" aria-labelledby="boundary-heading"><h2 id="boundary-heading">Занятия и врачебная помощь — разные форматы</h2><p>Оздоровительные занятия посвящены физической активности и технике упражнений. Если необходимы диагностика, лечение или медицинская реабилитация, требуется отдельная врачебная консультация.</p><a href="index.html#pricing">Перейти к медицинским услугам <span aria-hidden="true">→</span></a></aside>
   <div class="well-end"><a href="index.html#top">← На главную</a><span>DOC BRATUS · Доктор Михаил Братусь</span></div>
 </div></main>
-<script>
-const burger=document.getElementById('burger'), menu=document.getElementById('navLinks');
-function closeMenu(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.setAttribute('aria-label','Открыть меню');}
-burger.addEventListener('click',()=>{const open=menu.classList.toggle('open');burger.setAttribute('aria-expanded',String(open));burger.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');});
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();burger.focus();}});
-</script></body></html>
+</body></html>

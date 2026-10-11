@@ -43,8 +43,18 @@ class ArticleTests(unittest.TestCase):
 
     def test_reader_can_reach_article_from_homepage(self):
         page = Page(SITE / 'index.html')
-        self.assertIn(ARTICLE, page.links, 'Article must not be an orphan page')
+        self.assertIn('articles/index.html', page.links, 'Article library must be reachable from home')
+        library = Page(SITE / 'articles/index.html')
+        self.assertIn(Path(ARTICLE).name, library.links, 'Library must link to the published article')
         self.article()
+
+    def test_library_is_indexable_and_linked_from_article(self):
+        library = Page(SITE / 'articles/index.html')
+        self.assertEqual(library.canonical, 'https://docbratus.ru/articles/')
+        self.assertNotIn('noindex', library.robots)
+        self.assertIn('index.html', self.article().links, 'Reader must be able to return to all articles')
+        urls = [e.text for e in ET.parse(SITE / 'sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+        self.assertIn(library.canonical, urls)
 
     def test_search_discovery_matches_served_url(self):
         page = self.article()

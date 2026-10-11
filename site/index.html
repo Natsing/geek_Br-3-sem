@@ -517,6 +517,8 @@ img{max-width:100%;display:block}
 .clinic-note .ico{width:17px;height:17px;display:block;flex:none;color:var(--blue);margin-top:1px}
 </style>
 
+
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -532,30 +534,17 @@ img{max-width:100%;display:block}
 <!-- /Yandex.Metrika counter -->
 <script defer src="booking-metrika.js"></script>
 <link rel="stylesheet" href="wellness.css">
-</head>
+<link rel="stylesheet" href="navigation-v2.css"><script defer src="navigation-v2.js"></script></head>
 <body>
 
 <!-- ============ NAV ============ -->
-<header class="nav" id="nav">
-  <div class="container nav-inner">
-    <a href="#top" class="logo" aria-label="Доктор Михаил Братусь">
-      <span class="logo-text"><b class="wordmark">DOC <span>BRATUS</span></b><span class="brand-name">Доктор Михаил Братусь</span></span>
-    </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#results">Результаты</a>
-      <a href="#about">Обо мне</a>
-      <a href="#directions">Направления</a>
-      <a href="#pricing">Цены</a>
-      <a href="wellness.html">Оздоровительные занятия</a>
-      <a href="#reviews">Отзывы</a>
-      <a href="#booking">Контакты</a>
-    </nav>
-    <div class="nav-cta">
-      <a href="#booking" class="btn btn-primary">Записаться</a>
-      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
+<header class="db-header"><div class="db-bar">
+<a class="db-logo" href="index.html#top" aria-label="Доктор Михаил Братусь — главная"><b>DOC <span>BRATUS</span></b><small>Доктор Михаил Братусь</small></a>
+<nav class="db-links" id="db-navigation" aria-label="Основная навигация">
+<a href="index.html#about">Обо мне</a><a href="index.html#directions">С чем помогаю</a>
+<details class="db-services"><summary>Услуги и цены</summary><div class="db-submenu"><a href="index.html#pricing"><strong>Медицинские услуги</strong><small>Консультации и реабилитация</small></a><a href="wellness.html"><strong>Оздоровительные занятия</strong><small>Физическая активность и техника упражнений</small></a></div></details>
+<a href="index.html#reviews">Отзывы</a><a href="articles/index.html">Статьи</a><a href="index.html#booking">Контакты</a>
+</nav><a class="db-book" href="index.html#booking">Записаться</a><button class="db-toggle" type="button" aria-controls="db-navigation" aria-expanded="false">Меню</button></div></header>
 
 <main id="top">
 
@@ -1191,7 +1180,7 @@ img{max-width:100%;display:block}
       <div>
         <h4>Навигация</h4>
         <div class="footer-links">
-          <a href="articles/rehabilitaciya-posle-endoprotezirovaniya-tazobedrennogo-sustava.html">Статья: после эндопротезирования</a>
+          <a href="articles/index.html">Статьи</a>
           <a href="#results">Результаты</a>
           <a href="#about">Обо мне</a>
           <a href="#directions">Направления</a>
@@ -1228,20 +1217,6 @@ img{max-width:100%;display:block}
 
   // Год в футере
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Nav: тень при скролле
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function(){
-    nav.classList.toggle('scrolled', window.scrollY > 10);
-  }, {passive:true});
-
-  // Бургер-меню
-  var burger = document.getElementById('burger');
-  var navLinks = document.getElementById('navLinks');
-  burger.addEventListener('click', function(){ navLinks.classList.toggle('open'); });
-  navLinks.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ navLinks.classList.remove('open'); });
-  });
 
   // Пример персональной памятки
   var memoTrack = document.getElementById('memo-track');
