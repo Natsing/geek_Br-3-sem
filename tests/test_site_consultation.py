@@ -99,7 +99,7 @@ class ConsultationPageContractTests(unittest.TestCase):
             "6 000 ₽",
             "Первичный приём + индивидуальная PDF-памятка",
             "8 000 ₽",
-            "10 000 ₽",
+            "15 000 ₽",
             "в пределах МКАД · за МКАД — по согласованию",
             "Онлайн-консультация",
             "Разбор МРТ / КТ",
@@ -108,6 +108,12 @@ class ConsultationPageContractTests(unittest.TestCase):
             "оплачиваются отдельно",
         ):
             self.assertIn(expected, pricing)
+
+    def test_home_visit_has_approved_price_and_individual_memo(self) -> None:
+        pricing = self.section("<h3>Выезд на дом</h3>", "<h3>Онлайн-консультация</h3>")
+        self.assertIn("15 000 ₽", pricing)
+        self.assertIn("Индивидуальная PDF-памятка с упражнениями", pricing)
+        self.assertNotIn("10 000 ₽", pricing)
 
     def test_previsit_faq_answers_the_four_approved_questions(self) -> None:
         faq = self.section(
