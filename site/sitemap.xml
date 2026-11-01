@@ -14,9 +14,15 @@
   </url>
   <url>
     <loc>https://docbratus.ru/articles/</loc>
-    <lastmod>2026-10-11</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://docbratus.ru/articles/razbor-mrt-pozvonochnika.html</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://docbratus.ru/articles/rehabilitaciya-posle-endoprotezirovaniya-tazobedrennogo-sustava.html</loc>
