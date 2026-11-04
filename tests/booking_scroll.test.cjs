@@ -15,7 +15,8 @@ function boot(options={}){
  const win=hub(),doc=hub();
  win.location=new URL('https://docbratus.ru'+(options.path||'/')+(options.hash||''));
  const root={scrollHeight:env.docHeight},body={scrollHeight:env.docHeight};
- const booking={getBoundingClientRect:()=>({top:env.bookingY-env.y})},header={getBoundingClientRect:()=>({bottom:env.height})},reviews={};
+ const card={getBoundingClientRect:()=>({top:env.bookingY+env.cardOffset-env.y}),classList:{add(){}}};
+ const booking={getBoundingClientRect:()=>({top:env.bookingY-env.y}),querySelector:()=>env.cardOffset===undefined?null:card,classList:{add(){}}},header={getBoundingClientRect:()=>({bottom:env.height})},reviews={};
  doc.documentElement=root;doc.body=body;doc.readyState='complete';
  doc.getElementById=id=>id==='booking'&&!env.absent?booking:id==='reviews'?reviews:null;
  doc.querySelector=q=>q==='.db-header'?header:q==='#booking'&&!env.absent?booking:null;
@@ -42,6 +43,9 @@ test('same-home booking click reaches target without a document navigation',()=>
 });
 test('direct hash is corrected after the late reviews expand by 2712px',()=>{
  const e=boot({hash:'#booking'});assert.equal(e.y,2907);e.resize(2712);e.flush();assert.equal(e.y,5619);assert.equal(e.calls.at(-1).behavior,'instant');
+});
+test('booking activation reaches the contact card instead of stopping above long introductory copy',()=>{
+ const e=boot({hash:'#booking',cardOffset:650});assert.equal(e.y,3557);e.resize(2712);e.flush();assert.equal(e.y,6269);
 });
 test('unchanged observer delivery does not interrupt initial smooth scrolling',()=>{
  const e=boot({hash:'#booking'}),count=e.calls.length;assert.equal(count,1,'Initial navigation must scroll once');e.resize(0);e.flush();assert.equal(e.calls.length,count);assert.equal(e.calls[0].behavior,'smooth');

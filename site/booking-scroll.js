@@ -1,8 +1,9 @@
 /* Keep one requested booking navigation aligned while late reviews change layout. */
 (() => {
   'use strict';
-  const target = document.getElementById('booking');
-  if (!target) return;
+  const section = document.getElementById('booking');
+  if (!section) return;
+  const target = section.querySelector('.book-card') || section;
 
   const header = document.querySelector('.db-header');
   const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar'];
@@ -11,6 +12,8 @@
 
   function start() {
     stopCurrent();
+    // On narrow screens the contact card follows a long intro; reveal and reach the actual choices.
+    target.classList.add('in');
     let active = true, frame = 0, observer, lastDestination;
     const destination = () => {
       const offset = Math.max(0, header ? header.getBoundingClientRect().bottom : 0) + 12;
