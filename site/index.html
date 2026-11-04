@@ -534,7 +534,8 @@ img{max-width:100%;display:block}
 <!-- /Yandex.Metrika counter -->
 <script defer src="booking-metrika.js"></script>
 <link rel="stylesheet" href="wellness.css">
-<link rel="stylesheet" href="navigation-v2.css"><script defer src="navigation-v2.js"></script></head>
+<link rel="stylesheet" href="navigation-v2.css"><script defer src="navigation-v2.js"></script>
+<link rel="stylesheet" href="award-2026.css"><script defer src="award-2026.js"></script></head>
 <body>
 
 <!-- ============ NAV ============ -->
@@ -566,7 +567,7 @@ img{max-width:100%;display:block}
       </div>
       <div class="hero-trust">
         <div class="trust-row">
-          <a href="#reviews" class="trust-card trust-link" aria-label="Отзывы на ПроДокторов"><div class="trust-title">5,0 <span class="stars">★★★★★</span></div><div class="trust-sub">Отзывы на ПроДокторов →</div></a>
+          <a class="trust-card trust-link award-card" href="#about" aria-label="1-е место среди реабилитологов Москвы. Посмотреть грамоту"><span class="seal"><svg viewBox="0 0 34 40" aria-hidden="true" fill="none"><path d="m9 24-3 12 8-4 3 6 4-14m3 0 4 12-8-4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="17" cy="16" r="13" fill="#fff6dd" stroke="currentColor" stroke-width="1.4"/><circle cx="17" cy="16" r="10" stroke="currentColor" stroke-width=".65"/><path d="m14 14 3-2v9m-3 0h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><span class="award-card-title">1-е место среди реабилитологов Москвы</span><span class="award-card-source">Выбор пациентов · ПроДокторов 2026</span><span class="award-card-link">Посмотреть грамоту <span aria-hidden="true">→</span></span></span></a>
           <a href="#about" class="trust-card trust-link" aria-label="Обо мне"><div class="trust-title">Главный врач</div><div class="trust-sub">Обо мне →</div></a>
         </div>
         <div class="credentials">
@@ -748,12 +749,18 @@ img{max-width:100%;display:block}
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section class="section" id="about">
+<section class="section" id="about" aria-labelledby="bio-title"><div class="container">
+<div class="award-spread"><div class="award-copy"><span class="eyebrow">Обо мне</span>
+      <h2 class="section-title" id="bio-title">Братусь Михаил Андреевич</h2>
+      <p class="lead">Врач-реабилитолог, врач ЛФК и спортивной медицины, врач-терапевт. Более 7 лет помогаю пациентам вернуться к полноценной жизни без боли.</p>
+<div class="award-note"><div class="award-kicker"><i></i>Премия ПроДокторов · 2026</div>
+<h3>1-е место среди реабилитологов Москвы</h3>
+<p>Для меня особенно ценно, что этот рейтинг составлен по отзывам пациентов. Спасибо каждому, кто после приёма нашёл время написать, что было полезно и что я мог бы сделать лучше.</p>
+</div></div>
+<figure class="award-print"><a class="cert-button" href="award-prodoctorov-2026.jpg" aria-haspopup="dialog" aria-label="Увеличить грамоту премии ПроДокторов"><img id="award-img" width="3555" height="2528" alt="Грамота Михаила Андреевича Братуся: I место в рейтинге реабилитологов Москвы, выбор пациентов на 1 ноября 2026 года" src="award-prodoctorov-2026.jpg"><span class="magnify" aria-hidden="true">⤢</span></a>
+<figcaption><span>Рейтинг на 1 ноября 2026 года</span><a target="_blank" rel="noopener noreferrer" href="https://prodoctorov.ru/moskva/vrach/882297-bratus/">Проверить на ПроДокторов ↗</a></figcaption></figure></div></div>
   <div class="container about-grid">
     <div class="about-text reveal">
-      <span class="eyebrow">Обо мне</span>
-      <h2 class="section-title">Братусь Михаил Андреевич</h2>
-      <p class="lead">Врач-реабилитолог, врач ЛФК и спортивной медицины, врач-терапевт. Более 7 лет помогаю пациентам вернуться к полноценной жизни без боли.</p>
       <p>Несколько лет <strong>руководил медицинской службой полка</strong> — получил большой опыт работы с самыми разными нозологиями, как хирургическими, так и терапевтическими. Этот опыт позволяет видеть <strong>полную картину здоровья</strong> и исключать «маски» других заболеваний, которые могут проявляться болями в спине или суставах.</p>
       <p>Специализируюсь на <strong>комплексном консервативном восстановлении</strong> опорно-двигательного аппарата. В основе работы — доказательная медицина, функциональное тестирование, дозированная нагрузка и индивидуальные протоколы под каждого пациента. Имею сертификат проведения реабилитации после инсультов и травм на дому.</p>
       <p>Веду приём в Москве в МЦ «СМП-Мед» и «La Salute», выезжаю на дом и консультирую онлайн. Разработал веб-приложение <strong>Rehabapp</strong> для составления персональных протоколов реабилитации.</p>
@@ -1208,6 +1215,8 @@ img{max-width:100%;display:block}
     </div>
   </div>
 </footer>
+
+<dialog aria-label="Грамота крупным планом" id="cert-view"><div class="viewer-bar"><b>Грамота · ПроДокторов 2026</b><button type="button" autofocus>Закрыть ×</button></div><img alt="Оригинал грамоты крупным планом"></dialog>
 
 <!-- Floating CTA (mobile) -->
 <div class="float-cta"><a href="#booking" class="btn btn-primary">Записаться на приём</a></div>

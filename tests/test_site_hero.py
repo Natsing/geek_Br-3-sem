@@ -48,7 +48,7 @@ class ApprovedHeroContractTests(unittest.TestCase):
             "Верну вас",
             "к жизни",
             "без боли",
-            "5,0",
+            "1-е место среди реабилитологов Москвы",
             "Главный врач",
             "МЦ «СМП-Мед»",
             "Медицинский эксперт",
@@ -71,7 +71,7 @@ class ApprovedHeroContractTests(unittest.TestCase):
     def test_selected_trust_cards_are_clear_navigation_links(self) -> None:
         self.assertRegex(
             self.hero,
-            r'<a href="#reviews" class="trust-card trust-link"[^>]*>.*?Отзывы на ПроДокторов →.*?</a>',
+            r'<a class="trust-card trust-link award-card" href="#about"[^>]*>.*?Посмотреть грамоту.*?</a>',
         )
         self.assertRegex(
             self.hero,
